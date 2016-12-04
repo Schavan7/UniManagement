@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("Login.jsp"); 
 			} 
 		}
-		catch (ParseException | SQLException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 
