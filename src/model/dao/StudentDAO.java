@@ -93,7 +93,7 @@ public class StudentDAO extends UserDAO{
 
 	public void deleteStudent(Student st){
 		try {
-			String sql= "DELETE FROM schavan7_users WHERE user_id = " + st.getUserId();
+			String sql= "DELETE FROM users WHERE user_id = " + st.getUserId();
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {
