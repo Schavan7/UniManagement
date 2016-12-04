@@ -3,11 +3,10 @@
 
 	<servlet>
 		<servlet-name>User-login</servlet-name>
-		<servlet-class>LoginServlet</servlet-class>
+		<servlet-class>controller.LoginServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>User-login</servlet-name>
 		<url-pattern>/login.do</url-pattern>
 	</servlet-mapping>
-
 </web-app>
