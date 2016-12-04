@@ -64,4 +64,17 @@ CREATE TABLE IF NOT EXISTS addresses
 
 
 
+insert into departments (dept_name)
+values('ITM');
+	
+insert into users (first_name,email,password,dept_id,user_type)
+values('admin','admin@example.com','password',1,'Admin');
+
+insert into users (first_name,email,password,dept_id,user_type)
+values('student','student@example.com','password',1,'Student');
+
+insert into users (first_name,email,password,dept_id,user_type)
+values('faculty','faculty@example.com','password',1,'Faculty');
+
+
 
