@@ -1,4 +1,7 @@
-
+	
+CREATE TABLE IF NOT EXISTS departments
+(dept_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+dept_name VARCHAR(50));
 
 CREATE TABLE IF NOT EXISTS users
 (user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -14,10 +17,7 @@ cwid varchar(25),
 	FOREIGN KEY(dept_id) REFERENCES departments(dept_id));
 
 
-	
-CREATE TABLE IF NOT EXISTS departments
-(dept_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-dept_name VARCHAR(50));
+
 
 
 CREATE TABLE IF NOT EXISTS courses
