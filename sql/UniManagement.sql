@@ -8,8 +8,10 @@ cwid varchar(25),
 	email VARCHAR(40) UNIQUE,
 	password VARCHAR(30),
 	phone VARCHAR(11),
-	user_type ENUM('admin', 'student','faculty'),
-	DOB DATE);
+	dept_id INT,
+	user_type ENUM('Admin', 'Student','Faculty'),
+	DOB DATE,
+	FOREIGN KEY(dept_id) REFERENCES departments(dept_id));
 
 
 	

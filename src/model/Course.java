@@ -3,7 +3,7 @@ package model;
 public class Course {
 private Integer courseId;
 private String courseName;
-private Integer deptCourse;
+private Integer deptId;
 public Integer getCourseId() {
 	return courseId;
 }
@@ -16,11 +16,11 @@ public String getCourseName() {
 public void setCourseName(String courseName) {
 	this.courseName = courseName;
 }
-public Integer getDeptCourse() {
-	return deptCourse;
+public Integer getDeptId() {
+	return deptId;
 }
-public void setDeptCourse(Integer deptCourse) {
-	this.deptCourse = deptCourse;
+public void setDeptId(Integer deptid) {
+	this.deptId = deptId;
 }
 	
 }

@@ -4,10 +4,10 @@ import java.sql.Date;
 public class Class {
 private Integer classId;
 private Date startDate;
-private Date Date;
+private Date endDate;
 private Integer capacity;
 private Integer facultyId;
-private Integer claCourseid;
+private Integer Courseid;
 public Integer getClassId() {
 	return classId;
 }
@@ -20,11 +20,11 @@ public Date getStartDate() {
 public void setStartDate(Date startDate) {
 	this.startDate = startDate;
 }
-public Date getDate() {
-	return Date;
+public Date getendDate() {
+	return endDate;
 }
-public void setDate(Date date) {
-	Date = date;
+public void setendDate(Date date) {
+	endDate = date;
 }
 public Integer getCapacity() {
 	return capacity;
@@ -38,11 +38,11 @@ public Integer getFacultyId() {
 public void setFacultyId(Integer facultyId) {
 	this.facultyId = facultyId;
 }
-public Integer getClaCourseid() {
-	return claCourseid;
+public Integer getCourseid() {
+	return Courseid;
 }
-public void setClaCourseid(Integer claCourseid) {
-	this.claCourseid = claCourseid;
+public void setCourseid(Integer claCourseid) {
+	this.Courseid = claCourseid;
 }
 
 }
