@@ -1,80 +1,80 @@
 package model;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.Date;
 
 public class User {
 	
-	protected  IntegerProperty userId=new SimpleIntegerProperty(1);
-	protected  StringProperty firstName;
-	protected  StringProperty lastName;
-	protected  StringProperty password;
-	protected  StringProperty email;
-	protected  StringProperty phone;
-	protected  StringProperty userType;
-	
-
+	private Integer userId;
+	private String cwId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String  password;
+	private Date dob;
+	private String phone;
+	private String  userType;
+	private Integer deptId;
 	public Integer getUserId() {
-		return userId.get();
+		return userId;
 	}
-
 	public void setUserId(Integer userId) {
-		this.userId.set(userId);
+		this.userId = userId;
 	}
-
+	public String getCwId() {
+		return cwId;
+	}
+	public void setCwId(String cwId) {
+		this.cwId = cwId;
+	}
 	public String getFirstName() {
-		return firstName.get();
+		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
-		this.firstName = new SimpleStringProperty(firstName);
+		this.firstName = firstName;
 	}
-
 	public String getLastName() {
-		return lastName.get();
+		return lastName;
 	}
-
 	public void setLastName(String lastName) {
-		this.lastName= new SimpleStringProperty(lastName);
+		this.lastName = lastName;
 	}
-
-	public String getPassword() {
-		return password.get();
-	}
-
-	public void setPassword(String password) {
-		this.password = new SimpleStringProperty(password);
-	}
-
 	public String getEmail() {
-		return email.get();
+		return email;
 	}
-
 	public void setEmail(String email) {
-		this.email = new SimpleStringProperty(email);
+		this.email = email;
 	}
-
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
 	public String getPhone() {
-		return phone.get();
+		return phone;
 	}
-
 	public void setPhone(String phone) {
-		this.phone = new SimpleStringProperty(phone);
+		this.phone = phone;
 	}
-
 	public String getUserType() {
-		return userType.get();
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+	public Integer getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(Integer deptId) {
+		this.deptId = deptId;
 	}
 
-	public void setUserType(String userType) {
-		this.userType = new SimpleStringProperty(userType);
-	}
 	
 
 }
