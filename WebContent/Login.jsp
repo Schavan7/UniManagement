@@ -20,18 +20,19 @@
 		<div id="content">
 			<form method="post" action="login.do">
 				<h1>Login Form</h1>
+				<% if(request.getAttribute("errMsg") != null) { %>
 				<div>
 				<%= request.getAttribute("errMsg") %>
 				</div>
+				<%} %>
 				<div>
+				
 					<input type="email" name="userName" placeholder="Username" required="true" id="username">
 				</div>	
 				<div>
 					<input type="password" name="password" title="5 to 10 characters" placeholder="Password" required="true" id="password"> 	
 				</div>
-				<div>
-					<input placeholder="Date of Birth" class="textbox-n" name="dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
-				</div>
+
 				<div>
 					<input type="submit"  value="submit"/>
 				</div>					

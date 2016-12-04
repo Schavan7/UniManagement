@@ -38,13 +38,13 @@ public class LoginServlet extends HttpServlet {
 			String password = request.getParameter("password");
 			UserDAO dao = new UserDAO();
 			User user = dao.getUser("email", userName);
-			if (user != null || (user.getEmail().toLowerCase().equals(userName.toLowerCase())  && user.getPassword().equals(password))) { 
+			if (user != null && (user.getEmail().toLowerCase().equals(userName.toLowerCase())  && user.getPassword().equals(password))) { 
 				HttpSession session = request.getSession(true); 
 				session.setAttribute("currentUser", user); 
 				if(user.getUserType().equals("Student")){
 					response.sendRedirect("studentHome.jsp"); 
 
-				}else if(user.getUserType().equals("AdminUser")){
+				}else if(user.getUserType().equals("Admin")){
 					response.sendRedirect("adminUserHome.jsp"); 
 
 				}else if(user.getUserType().equals("Faculty")){
@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 			} 
 			else {
 				request.setAttribute("errMsg", "Username/password is invalid.");
-				response.sendRedirect("Login.jsp"); 
+				request.getRequestDispatcher("Login.jsp").forward(request,response);
 			} 
 		}
 		catch (Exception e) {
