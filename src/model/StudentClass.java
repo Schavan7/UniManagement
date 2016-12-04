@@ -1,7 +1,7 @@
 package model;
 import java.sql.Date;
 
-public class Class {
+public class StudentClass {
 private Integer classId;
 private Date startDate;
 private Date endDate;

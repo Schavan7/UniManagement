@@ -12,7 +12,7 @@ public class ConnectionDatabase {
 
 	public Connection getConnection(){
 		try{
-			Class.forName("com.mysql.jdbc.Driver");
+			StudentClass.forName("com.mysql.jdbc.Driver");
 			
 			//To create only one object of connection
 			if (conn == null){
