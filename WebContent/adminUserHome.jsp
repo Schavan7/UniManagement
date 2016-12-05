@@ -20,9 +20,9 @@
 
 <ul class="Admin-page">
 
-<li><a href = "#">Student Portal</a></li>
+<li><a href = "student.do?action=index">Student Portal</a></li>
 <li><a href = "#">Faculty</a></li>
-<li><a href = "#">Department</a></li>
+<li><a href = "department.do?action=index">Department</a></li>
 <li><a href = "#">Courses</a></li>
 <li><a href = "#">Enrollment</a></li>
 </ul>

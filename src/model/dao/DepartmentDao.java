@@ -16,7 +16,7 @@ public class DepartmentDao extends Dao{
 			if (rs.next()){	
 				dept = new Department();
 				dept.setDeptId(Integer.parseInt(rs.getString("dept_id")));
-				dept.setDeptName("dept_name");				
+				dept.setDeptName(rs.getString("dept_name"));				
 			}
 		} 
 		catch (SQLException e) {
@@ -25,16 +25,16 @@ public class DepartmentDao extends Dao{
 		return dept;
 	}
 
-	public ArrayList<Department> getAllCustomers(){	
+	public ArrayList<Department> getAllDepartments(){	
 		ArrayList <Department> list = new ArrayList<Department>();
 		try {
-			String sql= "select * from departments'" ;
+			String sql= "select * from departments" ;
 			rs = executeFetchQuery (sql);			
 
 			while (rs.next()){	
 				Department dept = new Department();
 				dept.setDeptId(Integer.parseInt(rs.getString("dept_id")));
-				dept.setDeptName("dept_name");
+				dept.setDeptName(rs.getString("dept_name"));	
 				list.add(dept);
 			}
 		} 
@@ -47,8 +47,7 @@ public class DepartmentDao extends Dao{
 
 	public boolean addDepartment(Department dept){
 		try {
-			String sql= "INSERT INTO departments(dept_id,dept_name) values('" +
-					dept.getDeptId() + "','" + dept.getDeptName() + "')";
+			String sql= "INSERT INTO departments(dept_name) values('" + dept.getDeptName() + "')";
 			executeModifySelectQuery(sql);				
 		} 
 		catch (Exception e) {
@@ -60,7 +59,7 @@ public class DepartmentDao extends Dao{
 
 	public void updateDepartment(Department dept){
 		try {
-			String sql= "UPDATE departments SET dept_id = '" + dept.getDeptId() + "',dept_name='" + dept.getDeptName() +
+			String sql= "UPDATE departments SET dept_name='" + dept.getDeptName() +
 					"'";
 			executeModifySelectQuery(sql);					
 		} 
@@ -71,9 +70,9 @@ public class DepartmentDao extends Dao{
 	}
 
 
-	public void deleteCustomer(Course course){
+	public void deleteDepartment(Department dept){
 		try {
-			String sql= "DELETE FROM courses WHERE course_id = " + course.getCourseId();
+			String sql= "DELETE FROM departments WHERE dept_id = " + dept.getDeptId();
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {

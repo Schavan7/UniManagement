@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Department;
 import model.Student;
+import model.dao.DepartmentDao;
 import model.dao.StudentDAO;
 
 /**
@@ -30,6 +32,7 @@ public class StudentController extends HttpServlet {
 		String forward = "";
 		StudentDAO dao = new StudentDAO();
 		if( action.equalsIgnoreCase("index") ) {
+			System.out.println("ttttttttt");
 			ArrayList<Student>  students = dao.getAllStudents();
 			request.setAttribute("students", students);
 			forward = "StudentIndex.jsp";
@@ -46,6 +49,9 @@ public class StudentController extends HttpServlet {
 			String studentId = request.getParameter("studentId");
 			Student student = dao.getStudent("user_id", studentId);
 			request.setAttribute("student", student);
+			DepartmentDao deptDao = new DepartmentDao();
+			ArrayList<Department>  departments = deptDao.getAllDepartments();
+			request.setAttribute("departments", departments);
 		}    
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
