@@ -19,7 +19,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-	<h1>Department Table</h1>
+<div class="container-fluid">
+	 <div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 	<h1>Department Table</h1>
 	<a 
 		href="department.do?action=edit">Add Department</a>
 	<table class="table table-striped">
@@ -27,8 +30,8 @@
 			<tr>
 				<th>Department ID</th>
 				<th>Department Name</th>
-				<th></th>
-				<th></th>
+				<th>Edit</th>                     
+                <th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,8 +39,7 @@
 				<tr>
 					<td><c:out value="${department.getDeptId()}" /></td>
 					<td><c:out value="${department.getDeptName()}" /></td>
-					<td><a
-							href="department.do?action=edit&departmentId=<c:out value='${department.getDeptId()}'/>">Edit</a></td>
+					<td><a href="department.do?action=edit&departmentId=<c:out value='${department.getDeptId()}'/>">Edit</a></td>
 						<td>
 						<a href="department.do?action=delete&departmentId=<c:out value='${department.getDeptId()}'/>">Delete</a>
 						</td>
@@ -45,5 +47,7 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
 </body>
 </html>

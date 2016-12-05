@@ -19,16 +19,19 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-<div class="container">
+<div class="container-fluid">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>
+<div class="panel-body">	
 <form class="form-inline" action="department.do" method="post">
 <input type="hidden" name="departmentId" value="<c:out value="${department.getDeptId()}" />" />
   <div class="form-group">
-    <label for="Department Name">Department Name</label>
+  <label for="Department Name">Department Name</label>
     <input type="text" class="form-control" id="pwd"  name="deptName" value="<c:out value="${department.getDeptName()}" />">
   </div>
-
   <button type="submit" class="btn btn-success btn-md">Success</button>
 </form>
+<div class="panel-footer"><%@include file="footer.jsp" %></div>
+</div>
 </div>
 </body>
 </html>

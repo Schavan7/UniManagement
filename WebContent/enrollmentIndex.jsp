@@ -20,7 +20,9 @@
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
 <div class="container-fluid">
-	<div class="row">	
+<div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 		<div class="row">	
         <div class="col-md-12">
         <h2>List of Enrollment Details:</h2>
         <div class="table-responsive">                
@@ -62,6 +64,9 @@
 				</table>
 			</div>
 		</div>
+		</div>
+		<div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
 	</div>
 
 </body>

@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container-fluid">
+	 <div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 	<div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
+
 
 </body>
 </html>

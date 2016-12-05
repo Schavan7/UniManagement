@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,16 +16,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </script>
 <body>
+<div class="container-fluid">
+	 <div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>
+	 <ul class="Admin-page">
 
+		<li><a href = "student.do?action=index">Student Portal</a></li>
+		<li><a href = "#">Faculty</a></li>
+		<li><a href = "department.do?action=index">Department</a></li>
+		<li><a href = "#">Courses</a></li>
+		<li><a href = "#">Enrollment</a></li>
+	</ul>
+	 
+	 <div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
 
-<ul class="Admin-page">
-
-<li><a href = "student.do?action=index">Student Portal</a></li>
-<li><a href = "#">Faculty</a></li>
-<li><a href = "department.do?action=index">Department</a></li>
-<li><a href = "#">Courses</a></li>
-<li><a href = "#">Enrollment</a></li>
-</ul>
 
 </body>
 </html>

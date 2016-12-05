@@ -21,8 +21,12 @@
 	
 </script>
 <body>
-<div class="container">
-      <div class="row">
+
+<div class="container-fluid">
+	 <div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 	
+	<div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
           
       </div>
@@ -131,6 +135,8 @@
           </div>
         </div>
       </div>
+      <div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
     </div>
 
 

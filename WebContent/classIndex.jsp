@@ -18,6 +18,8 @@
 <body>
 <body>
 <div class="container-fluid">
+<div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>
 <h1>Class Form</h1>
 <table class="table table-striped">
 <thead>
@@ -54,7 +56,9 @@
 </tr>
 </tbody>
 </table>
+<div class="panel-footer"><%@include file="footer.jsp" %></div>
 </div>
+
 
 </body>
 </html>

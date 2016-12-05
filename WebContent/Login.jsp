@@ -16,7 +16,8 @@
 </script>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
+	
 		<div id="content">
 			<form method="post" action="login.do">
 				<h1>Login Form</h1>

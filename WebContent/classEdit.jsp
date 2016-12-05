@@ -23,6 +23,7 @@
 <body>
 <div class="container">
       <div class="row">
+       <div class="panel-heading"><%@include file="header.jsp" %></div>
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
           
       </div>
@@ -30,14 +31,10 @@
    
    
           <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Class Edit Form</h3>
-            </div>
+           
             <div class="panel-body">
               <div class="row">
-                       
-                
-                <div class=" col-md-9 col-lg-9 "> 
+              <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
@@ -99,6 +96,7 @@
                 </div>
               </div>
             </div>
+            <div class="panel-footer"><%@include file="footer.jsp" %></div>
           </div>
         </div>
       </div>

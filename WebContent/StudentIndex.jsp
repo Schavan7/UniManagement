@@ -23,6 +23,9 @@
 </script>
 <body>
 	<div class="container-fluid">
+	<div class="panel panel-default">
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 	
 		<h1>Student Edit Form</h1>
 		<a 
 		href="student.do?action=edit">Add student</a></td>
@@ -57,7 +60,9 @@
 						
 						<td><c:out value="${student.getDepartmentName()}" /></td>
 						<td><a class="btn btn-primary"
-							href="student.do?action=edit&studentId=<c:out value='${student.getUserId() }'/>">Edit</a></td>
+							href="student.do?action=edit&studentId=<c:out value='${student.getUserId() }'/>"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="<c:out value='${student.getUserId() }'/>" >
+    								<span class="glyphicon glyphicon-pencil"></span>
+    								</button></a></td>
 						<td>
 						<a class="btn btn-primary" href="student.do?action=delete&studentId=<c:out value='${student.getUserId() }'/>">Delete</a>
 						</td>
@@ -66,6 +71,8 @@
 
 			</tbody>
 		</table>
+		<div class="panel-footer"><%@include file="footer.jsp" %></div>
+	</div>
 	</div>
 </body>
 </html>
