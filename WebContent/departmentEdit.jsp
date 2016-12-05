@@ -26,7 +26,7 @@
     <input type="text" class="form-control" id="pwd">
   </div>
 
-  <button type="button" class="btn btn-success btn-md">Success</button>
+  <button type="submit" class="btn btn-success btn-md">Success</button>
 </form>
 </div>
 </body>

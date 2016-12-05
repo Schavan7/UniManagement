@@ -18,6 +18,19 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
-
+<h1>Department Table</h1>
+<table class="table table-striped">
+<thead>
+<tr>
+<th> Department ID </th>
+<th> Department Name </th></tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Information Technology and Managment</td>
+</tr>
+</tbody>
+</table>
 </body>
 </html>
