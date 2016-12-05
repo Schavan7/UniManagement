@@ -19,8 +19,8 @@ import model.dao.StudentDAO;
 /**
  * Servlet implementation class DepartmentController
  */
-@WebServlet("/DepartmentController")
-public class DepartmentController extends HttpServlet {
+@WebServlet("/AdminDepartmentController")
+public class AdminDepartmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
