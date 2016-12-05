@@ -32,7 +32,7 @@ public class StudentController extends HttpServlet {
 		String forward = "";
 		StudentDAO dao = new StudentDAO();
 		if( action.equalsIgnoreCase("index") ) {
-			System.out.println("ttttttttt");
+	
 			ArrayList<Student>  students = dao.getAllStudents();
 			request.setAttribute("students", students);
 			forward = "StudentIndex.jsp";
@@ -64,18 +64,16 @@ public class StudentController extends HttpServlet {
 		Student student = new Student();
 		StudentDAO dao = new StudentDAO();
 
-		System.out.println(request.getParameter( "firstName" ) );
 		student.setFirstName( request.getParameter( "firstName" ) );
 		student.setLastName( request.getParameter( "lastName" ) );
 		student.setEmail( request.getParameter("email"));
 		student.setCwId(request.getParameter("cwId"));
-		//student.setDeptId(Integer.parseInt(request.getParameter("")));
-		student.setDeptId(1);
+		student.setDeptId(Integer.parseInt(request.getParameter("departmentId")));
 		//student.setDob(Date.valueOf(request.getParameter("")));
 		student.setDob(Date.valueOf("2017-10-10"));
 		student.setPassword( request.getParameter("password"));
-		student.setPhone(request.getParameter("password"));
-		student.setUserType("Student");
+		student.setPhone(request.getParameter("phone"));
+		student.setUserType(request.getParameter("userType"));
 		String studentId = request.getParameter("studentId");
 		
 

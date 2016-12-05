@@ -46,7 +46,7 @@
 			<tbody>
 				<c:forEach items="${students}" var="student">
 					<tr>
-						<td>	</td>
+						<td><c:out value="${student.getCwId()}" />	</td>
 						<td><c:out value="${student.getFirstName()}" /></td>
 						<td><c:out value="${student.getLastName()}" /></td>
 						<td><c:out value="${student.getEmail()}" /></td>
@@ -54,11 +54,12 @@
 						<td><c:out value="${student.getDob()}" /></td>
 						<td><c:out value="${student.getPhone()}" /></td>
 						<td><c:out value="${student.getUserType()}" /></td>
-						<td><c:out value="${student.getDeptId()}" /></td>
-						<td><a
+						
+						<td><c:out value="${student.getDepartmentName()}" /></td>
+						<td><a class="btn btn-primary"
 							href="student.do?action=edit&studentId=<c:out value='${student.getUserId() }'/>">Edit</a></td>
 						<td>
-						<a href="student.do?action=delete&studentId=<c:out value='${student.getUserId() }'/>">Delete</a>
+						<a class="btn btn-primary" href="student.do?action=delete&studentId=<c:out value='${student.getUserId() }'/>">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

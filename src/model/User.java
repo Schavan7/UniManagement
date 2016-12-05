@@ -2,6 +2,8 @@ package model;
 
 import java.sql.Date;
 
+import model.dao.DepartmentDao;
+
 public class User {
 	
 	private Integer userId;
@@ -76,5 +78,9 @@ public class User {
 	}
 
 	
+	public String getDepartmentName(){
+		DepartmentDao deptDao = new DepartmentDao();
+		return deptDao.getDepartment("dept_id",this.getDeptId().toString()).getDeptName();
+	}
 
 }

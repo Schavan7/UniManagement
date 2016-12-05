@@ -60,7 +60,7 @@ public class DepartmentDao extends Dao{
 	public void updateDepartment(Department dept){
 		try {
 			String sql= "UPDATE departments SET dept_name='" + dept.getDeptName() +
-					"'";
+					"' where dept_id = " + dept.getDeptId();
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {

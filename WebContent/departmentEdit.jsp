@@ -20,7 +20,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 <div class="container">
-<form class="form-inline" action="student.do" method="post">
+<form class="form-inline" action="department.do" method="post">
+<input type="hidden" name="departmentId" value="<c:out value="${department.getDeptId()}" />" />
   <div class="form-group">
     <label for="Department Name">Department Name</label>
     <input type="text" class="form-control" id="pwd"  name="deptName" value="<c:out value="${department.getDeptName()}" />">

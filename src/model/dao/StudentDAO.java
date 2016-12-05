@@ -79,9 +79,9 @@ public class StudentDAO extends UserDAO{
 
 	public void updateStudent(Student st){
 		try {
-			String sql= "UPDATE users SET firstName = '" + st.getFirstName() + "',lastName='" + st.getLastName() +
-					"', email='" + st.getEmail() + "', password= '"+ st.getPassword() + "',phone='" + st.getPhone() + 
-					 "',DOB='" + st.getDob() + "',cwid='" + st.getCwId() + "',dept_id='" + st.getDeptId() +"'";
+			String sql= "UPDATE users SET first_Name = '" + st.getFirstName() + "',last_Name='" + st.getLastName() +
+					 "', password= '"+ st.getPassword() + "',phone='" + st.getPhone() + "',user_type='" + st.getUserType() +
+					 "',DOB='" + st.getDob() + "',cwid='" + st.getCwId() + "',dept_id='" + st.getDeptId() +"' where user_id=" + st.getUserId()	 ;
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {
