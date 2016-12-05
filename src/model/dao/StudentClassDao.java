@@ -1,6 +1,6 @@
 package model.dao;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,8 +17,6 @@ public class StudentClassDao extends Dao {
 				classes.setClassId(Integer.parseInt(rs.getString("class_id")));
 				classes.setCapacity(Integer.parseInt("capacity"));
 				classes.setCourseid(Integer.parseInt(rs.getString("course_id")));
-				classes.setStartDate(rs.getDate("startdate"));
-				classes.setendDate(rs.getDate("enddate"));
 				classes.setFacultyId(Integer.parseInt(rs.getString("faculty_id")));
 				
 			}
@@ -29,7 +27,7 @@ public class StudentClassDao extends Dao {
 		return classes;
 	}
 
-	public ArrayList<StudentClass> getAllStudents(){	
+	public ArrayList<StudentClass> getAllClass(){	
 		ArrayList <StudentClass> list = new ArrayList<StudentClass>();
 		try {
 			String sql= "select * from classes'" ;
@@ -40,8 +38,6 @@ public class StudentClassDao extends Dao {
 				classes.setClassId(Integer.parseInt(rs.getString("class_id")));
 				classes.setCapacity(Integer.parseInt("capacity"));
 				classes.setCourseid(Integer.parseInt(rs.getString("course_id")));
-				classes.setStartDate(rs.getDate("startdate"));
-				classes.setendDate(rs.getDate("enddate"));
 				list.add(classes);
 			}
 
@@ -55,8 +51,8 @@ public class StudentClassDao extends Dao {
 
 	public boolean addClass(StudentClass classes){
 		try {
-			String sql= "INSERT INTO classes(class_id,capacity,startdate,enddate,faculty_id,course_id) values('" +
-					classes.getClassId() + "','" + classes.getCapacity() + "','" + classes.getStartDate()+ "','" + classes.getendDate()+ "','" + classes.getFacultyId()+ "','" + classes.getCourseid()+ "')";
+			String sql= "INSERT INTO classes(class_id,capacity,faculty_id,course_id) values('" +
+					classes.getClassId() + "','" + classes.getCapacity() + "','"  + classes.getFacultyId()+ "','" + classes.getCourseid()+ "')";
 			executeModifySelectQuery(sql);				
 		} 
 		catch (Exception e) {
@@ -66,10 +62,9 @@ public class StudentClassDao extends Dao {
 		return true;
 	}
 
-	public void updateCourses(StudentClass classes){
+	public void updateClasses(StudentClass classes){
 		try {
-			String sql= "UPDATE courses SET class_id = '" + classes.getClassId() + "',capacity='" + classes.getCapacity() +
-					"', startdate='" + classes.getStartDate() + "',  enddate='" + classes.getendDate() + "', faculty_id='" + classes.getFacultyId() + "', course_id='" + classes.getCourseid() + "' ";
+			String sql= "UPDATE courses SET class_id = '" + classes.getClassId() + "',capacity='" + classes.getCapacity() + "', faculty_id='" + classes.getFacultyId() + "', course_id='" + classes.getCourseid() + "' ";
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {
@@ -79,7 +74,7 @@ public class StudentClassDao extends Dao {
 	}
 
 
-	public void deleteCustomer(StudentClass classes){
+	public void deleteClasses(StudentClass classes){
 		try {
 			String sql= "DELETE FROM classes WHERE class_id = " + classes.getClassId();
 			executeModifySelectQuery(sql);					

@@ -7,7 +7,7 @@ import model.Course;
 
 public class CourseDAO extends Dao{
 
-		public Course getCoures(String columnName, String value){
+		public Course getCourse(String columnName, String value){
 			Course course = null;  
 			try {
 				String sql= "select * from courses where " + columnName +  "='" + value + "'";
@@ -17,6 +17,8 @@ public class CourseDAO extends Dao{
 					course.setCourseId(Integer.parseInt(rs.getString("course_id")));
 					course.setCourseName(rs.getString("course_name"));
 					course.setDeptId(rs.getInt("dept_id"));
+					course.setStartDate(rs.getDate("startdate"));
+					course.setEndDate(rs.getDate("enddate"));
 					
 				}
 			} 
@@ -26,7 +28,7 @@ public class CourseDAO extends Dao{
 			return course;
 		}
 
-		public ArrayList<Course> getAllCustomers(){	
+		public ArrayList<Course> getAllCourses(){	
 			ArrayList <Course> list = new ArrayList<Course>();
 			try {
 				String sql= "select * from courses'" ;
@@ -37,6 +39,8 @@ public class CourseDAO extends Dao{
 					course.setCourseId(Integer.parseInt(rs.getString("course_id")));
 					course.setCourseName(rs.getString("course_name"));
 					course.setDeptId(rs.getInt("dept_id"));
+					course.setStartDate(rs.getDate("startdate"));
+					course.setEndDate(rs.getDate("enddate"));
 					list.add(course);
 				}
 
@@ -50,8 +54,8 @@ public class CourseDAO extends Dao{
 
 		public boolean addCourse(Course course){
 			try {
-				String sql= "INSERT INTO courses(course_id,course_name,dept_id) values('" +
-						course.getCourseId() + "','" + course.getCourseName() + "','" + course.getDeptId()+ "')";
+				String sql= "INSERT INTO courses(course_id,course_name,dept_id,startdate,enddate) values('" +
+						course.getCourseId() + "','" + course.getCourseName() + "','" + course.getDeptId()+"','" +course.getStartDate()+"','" +course.getEndDate()+ "')";
 				executeModifySelectQuery(sql);				
 			} 
 			catch (Exception e) {
@@ -64,7 +68,7 @@ public class CourseDAO extends Dao{
 		public void updateCourses(Course course){
 			try {
 				String sql= "UPDATE courses SET course_id = '" + course.getCourseId() + "',course_name='" + course.getCourseName() +
-						"', dept_id='" + course.getDeptId() + "'";
+						"', dept_id='" + course.getDeptId() +"', startdate='" + course.getStartDate() +"', enddate='" + course.getEndDate() + "'";
 				executeModifySelectQuery(sql);					
 			} 
 			catch (Exception e) {
@@ -74,7 +78,7 @@ public class CourseDAO extends Dao{
 		}
 
 
-		public void deleteCustomer(Course course){
+		public void deleteCourse(Course course){
 			try {
 				String sql= "DELETE FROM courses WHERE course_id = " + course.getCourseId();
 				executeModifySelectQuery(sql);					

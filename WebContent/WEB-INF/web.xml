@@ -14,6 +14,14 @@
 		<servlet-name>department</servlet-name>
 		<servlet-class>controller.AdminDepartmentController</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>course</servlet-name>
+		<servlet-class>controller.AdminCourseController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>class</servlet-name>
+		<servlet-class>controller.AdminClassController</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>User-login</servlet-name>
@@ -29,4 +37,15 @@
 		<servlet-name>department</servlet-name>
 		<url-pattern>/department.do</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>course</servlet-name>
+		<url-pattern>/course.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>class</servlet-name>
+		<url-pattern>/class.do</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

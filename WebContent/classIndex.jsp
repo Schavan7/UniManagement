@@ -26,8 +26,6 @@
 <tr>
 <th>Class ID</th>
 <th>Capacity</th>
-<th>Start Date</th>
-<th>End Date</th>
 <th>Faculty Name</th>
 <th>Course Name</th>
 <th>Edit</th>
@@ -38,8 +36,6 @@
 <tr>
 <td>1001</td>
 <td>30</td>
-<td>12/02/2016</td>
-<td>12/05/2016</td>
 <td>Faculty Name</td>
 <td>Course Name</td>
 

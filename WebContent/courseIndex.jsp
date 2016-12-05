@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +30,9 @@
                    <thead>                   
                    <th>Course ID</th>
                     <th>Course Name</th>
-                     <th>Department Name</ th>
+                     <th>Department Name</th>
+                     <th>Start Date</th>
+					<th>End Date</th>
                       <th>Edit</th>                     
                        <th>Delete</th>
                    	</thead>
@@ -38,6 +41,8 @@
     							<td>Mohsin</td>
     							<td>Irshad</td>
     							<td>CB 106/107 Street</td>
+    							<td>12/02/2016</td>
+								<td>12/05/2016</td>
     							<td><p data-placement="top" data-toggle="tooltip" title="Edit">
     								<button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" >
     								<span class="glyphicon glyphicon-pencil"></span>

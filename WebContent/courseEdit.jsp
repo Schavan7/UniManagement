@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,15 +26,14 @@
             <div class="panel-body">
               <div class="row">
                 <div class=" col-md-9 col-lg-9 "> 
+                <form class="form-inline" action="course.do" method="post">
+                  <input type="hidden" name="courseId" value="<c:out value="${course.getCourseId()}" />" />
                   <table class="table table-user-information">
                     <tbody>
-                      <tr>
-                        <td>CourseID:</td>
-                        <td><input type="text"name="courseId" class="form-control" id="courseid"></td>
-                      </tr>
+                      
                       <tr>
                         <td>Course Name:</td>
-                        <td><input type="text"name="courseName" class="form-control" id="courseName"></td>
+                        <td><input type="text"name="courseName" class="form-control" id="courseName" value="<c:out value="${course.getCourseName()}" />"></td>
                       </tr>
                       <tr>
                         <td>Department name:</td>
@@ -50,20 +50,30 @@
 							<li><a href="#">EEE</a></li>
 						</ul>
 					</div></td>
-                      </tr>                
+                      </tr>               
+                       <tr>
+                        <td>Start Date:</td>
+                          <td> <input placeholder="startDate" class="textbox-n" name="startDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                      </tr>
+                         
+                         <tr>
+                         <td>End Date:</td>
+                           <td> <input placeholder="endDate" class="textbox-n" name="endDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                         </tr> 
                      </tbody>
                   </table>
                   
                   <a href="#" class="btn btn-primary">Update Courses</a>
                   <a href="#" class="btn btn-primary">View Courses</a>
+				</form>               
                 </div>
               </div>
+			         
             </div>
             </div>
             <div class="panel-footer"><%@include file="footer.jsp" %></div>
             </div>
                  
-     
 
 </body>
 </html>

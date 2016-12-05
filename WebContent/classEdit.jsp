@@ -33,6 +33,7 @@
           <div class="panel panel-info">
            
             <div class="panel-body">
+            <form class="form-inline" action="class.do" method="post">
               <div class="row">
               <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
@@ -47,15 +48,7 @@
                         <td><input type="text" name="cwId"
 						class="form-control" id="cwid"> </td>
                       </tr>
-                      <tr>
-                        <td>Start Date:</td>
-                          <td> <input placeholder="Date of Birth" class="textbox-n" name="startDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
-                      </tr>
-                         
-                         <tr>
-                         <td>End Date:</td>
-                           <td> <input placeholder="Date of Birth" class="textbox-n" name="dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
-                         </tr>
+                     
                         
                          <tr>
                          <td>Course Name</td>
@@ -95,6 +88,7 @@
                   <a href="#" class="btn btn-primary">View</a>
                 </div>
               </div>
+              </form>
             </div>
             <div class="panel-footer"><%@include file="footer.jsp" %></div>
           </div>
