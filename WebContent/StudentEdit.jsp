@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,29 +23,30 @@
 <body>
 	<div class="container-fluid">
 		<h2>Student Edit Form</h2>
-		<form class="form-inline">
+		<form class="form-inline" action="student.do" method="post">
 			<div class="form-group">
 				<div class="col-xs-3">
-					<label for="user_id">User ID </label> <input type="text"
-						name="userId" class="form-control" id="userid"> <label
-						for="cwid">CWID </label> <input type="text" name="cwId"
-						class="form-control" id="cwid"> <label for="F_name">First
-						Name </label> <input type="text" name="firstName" class="form-control"
-						id="fname"> <br> <label for="L_name">Last
-						Name </label> <input type="text" name="lastName" class="form-control"
-						id="lname">
-
+ 
+						<label for="cwid">CWID </label> 
+						<input type="text" name="cwId" class="form-control" id="cwid" value="<c:out value="${student.getCwId()}" />"> 
+						<label for="F_name">First Name </label> 
+						<input type="text" name="firstName" class="form-control" id="fname" value="<c:out value="${student.getFirstName()}" />" > <br> 
+						<label for="L_name">Last Name </label> 
+						<input type="text" name="lastName" class="form-control" id="lname" value="<c:out value="${student.getFirstName()}" />">
 				</div>
 				<div class="col-xs-3">
 					<label for="email">Email </label> <input type="email" name="email"
-						class="form-control" id="email"> <label for="password">Password
+						class="form-control" id="email" value="<c:out value="${student.getEmail()}" />"> 
+						<label for="password">Password
 					</label> <input type="text" name="pasword" class="form-control"
-						id="password"> <label for="dob">DOB </label> <input
-						type="text" name="dob" class="form-control" id="dob">
+						id="password" value="<c:out value="${student.getPassword()}" />"> 
+						<label for="dob">DOB </label> <input
+						type="text" name="dob" class="form-control" id="dob" value="<c:out value="${student.getDob()}" />">
 				</div>
 				<div class="col-xs-3">
 					<label for="phone">Phone no. </label> <input type="text"
-						name="phone" class="form-control" id="phone"> <label
+						name="phone" class="form-control" id="phone" value="<c:out value="${student.getPhone()}" />">
+						 <label
 						for="user_type">User Type</label>
 
 					<div class="dropdown">

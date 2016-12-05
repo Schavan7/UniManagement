@@ -29,7 +29,7 @@ public class StudentClassDao extends Dao {
 		return classes;
 	}
 
-	public ArrayList<StudentClass> getAllCustomers(){	
+	public ArrayList<StudentClass> getAllStudents(){	
 		ArrayList <StudentClass> list = new ArrayList<StudentClass>();
 		try {
 			String sql= "select * from classes'" ;
@@ -53,7 +53,7 @@ public class StudentClassDao extends Dao {
 	}
 
 
-	public boolean addclass(StudentClass classes){
+	public boolean addClass(StudentClass classes){
 		try {
 			String sql= "INSERT INTO classes(class_id,capacity,startdate,enddate,faculty_id,course_id) values('" +
 					classes.getClassId() + "','" + classes.getCapacity() + "','" + classes.getStartDate()+ "','" + classes.getendDate()+ "','" + classes.getFacultyId()+ "','" + classes.getCourseid()+ "')";

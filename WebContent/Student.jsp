@@ -8,5 +8,7 @@
 </head>
 <body>
 
+<a href="student.do?action=index"> List</a></td>
+                    
 </body>
 </html>
