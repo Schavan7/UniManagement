@@ -21,7 +21,8 @@
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
 <div class="container-fluid">
-<div class="panel-heading"><%@include file="header.jsp" %></div>
+<div class="panel-heading">
+<%@include file="header.jsp" %></div>
 	 <div class="row">	
         <div class="col-md-12">
         <h2>List of Courses:</h2>

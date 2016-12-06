@@ -69,8 +69,8 @@ public class AdminStudentController extends HttpServlet {
 		student.setEmail( request.getParameter("email"));
 		student.setCwId(request.getParameter("cwId"));
 		student.setDeptId(Integer.parseInt(request.getParameter("departmentId")));
-		//student.setDob(Date.valueOf(request.getParameter("")));
-		student.setDob(Date.valueOf("2017-10-10"));
+		student.setDob(Date.valueOf(request.getParameter("Dob")));
+		//student.setDob(Date.valueOf("2017-10-10"));
 		student.setPassword( request.getParameter("password"));
 		student.setPhone(request.getParameter("phone"));
 		student.setUserType(request.getParameter("userType"));

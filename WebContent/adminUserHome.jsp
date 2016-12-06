@@ -15,10 +15,16 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </script>
+<style>
+panel-body{
+height:2000px;}
+</style>
 <body>
 <div class="container-fluid">
-<div class="panel panel-default">
+<div class="panel panel-default" style="max-height: 500;overflow-y: scroll;">
 	 <div class="panel-heading"><%@include file="header.jsp" %></div>
+	 <div class= "panel-body">
+	 <div style="height:500px">
 	 <div class="container">
  <div class="row">           
  <div class="col-sm-2 col-lg-2">      	
@@ -53,6 +59,8 @@
 	<div class="dash-unit">
 		<div class="thumbnail"><img src="images/enrollment.png" class="img-fluid"	alt="Responsive image"></div>
 		<a href = "enrollment.do?action=index"><center><h3>Enrollment Portal</h3></center></a>
+	</div>
+	</div>
 	</div>
 	</div>
 	</div>

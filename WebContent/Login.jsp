@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/app.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>University Management System</title>
 
 <script>
     if (!Modernizr.touch || !Modernizr.inputtypes.date) {

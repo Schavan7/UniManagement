@@ -29,14 +29,13 @@ $('.datepicker').datepicker();
 	 <div class= "row">
 	 <div class="col-lg-3">
 	 <ul class="nav nav-stacked">
-                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
+                <li class="nav-header"> 
+                <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
                     <ul class="nav nav-stacked collapse in" id="userMenu">
                         <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Notification</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Options</a></li>
-                        
-                        <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
-                    </ul>
+                      </ul>
 	 </div>
 	 <div class="col-lg-6">
 	 <div class="panel-heading"><h4>Courses:</h4></div>

@@ -30,7 +30,7 @@
 	 <div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-				<h4 class="panel-title">Student Edit Form</h3>
+				<h3 class="panel-title">Student Edit Form</h3>
 					</div>
 					<div class="panel-body">
 						<div class="row"><div class=" col-md-9 col-lg-9 ">
@@ -64,15 +64,8 @@
 												value="<c:out value="${student.getPassword()}" />"></td>
 											</tr>
 											<td>DOB</td>
-											<td>
-												<div class="input-group date" data-provide="datepicker"
-													name="dob">
-													<input type="text" class="form-control">
-													<div class="input-group-addon">
-														<span class="glyphicon glyphicon-th"></span>
-													</div>
-												</div>
-											</td>
+											<td><input placeholder="dob" class="textbox-n" name="Dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dob" value="<c:out value="${student.getDob()}" />">
+												</td>
 											</tr>
 											<td>Phone No:</td>
 											<td><input type="text" name="phone" class="form-control"

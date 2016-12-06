@@ -37,7 +37,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li class="divider"></li>
-						<li><a href="#">Logout</a></li>
+						<li><a href="logout.do">Logout</a></li>
 					</ul></li>
 			</ul>
 			</div>

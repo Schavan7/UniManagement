@@ -16,7 +16,7 @@ public class ConnectionDatabase {
 			
 			//To create only one object of connection
 			if (conn == null){
-				conn = DriverManager.getConnection("jdbc:mysql://localhost/UniManagement", "root","password");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost/Uni_Management", "root","jyoti");
 			}
 		}
 		catch (SQLException e ){

@@ -26,7 +26,7 @@ $('.datepicker').datepicker();
 	 <div class="panel panel-default">
 	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
  	
-<a href="student.do?action=index"> List</a></td>
+<a href="student.do?action=index"> List</a>
       <div class="panel-footer"><%@include file="footer.jsp" %></div>
 	</div>              
 </body>
