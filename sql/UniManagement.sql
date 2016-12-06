@@ -1,7 +1,15 @@
 	
+
+
 CREATE TABLE IF NOT EXISTS departments
 (dept_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 dept_name VARCHAR(50));
+
+CREATE TABLE IF NOT EXISTS semesters
+(semester_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+semester_type varchar(50),
+semester_year varchar(25),
+semester_status tinyint(1));
 
 CREATE TABLE IF NOT EXISTS users
 (user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -17,26 +25,21 @@ cwid varchar(25),
 	FOREIGN KEY(dept_id) REFERENCES departments(dept_id));
 
 
-
-
-
 CREATE TABLE IF NOT EXISTS courses
 (course_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 course_name VARCHAR(50),
-dept_id INT,
-FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
-);
-
-CREATE TABLE IF NOT EXISTS classes
-(class_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 capacity INT,
 startdate DATE,
 enddate DATE,
 faculty_id INT,
-course_id INT,
+dept_id INT,
+semester_id INT,
 FOREIGN KEY (faculty_id) REFERENCES users(user_id),
-FOREIGN KEY (course_id) REFERENCES courses(course_id)
+FOREIGN KEY (semester_id) REFERENCES semesters(semester_id),
+FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 );
+
+
 
 CREATE TABLE IF NOT EXISTS enrollments
 (enrollment_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -44,10 +47,11 @@ startdate DATE,
 enddate DATE,
 course_id INT,
 course_name VARCHAR(50),
-class_id INT,
 grade DECIMAL(5,2),
 student_id INT,
-FOREIGN KEY (student_id) REFERENCES users(user_id)
+semester_id INT,
+FOREIGN KEY (student_id) REFERENCES users(user_id),
+FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)
 );
 
 CREATE TABLE IF NOT EXISTS addresses
@@ -76,5 +80,15 @@ values('student','student@example.com','password',1,'Student');
 insert into users (first_name,email,password,dept_id,user_type)
 values('faculty','faculty@example.com','password',1,'Faculty');
 
-
-
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2017',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2017',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2018',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2018',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2019',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2019',1);
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2020',0);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2020',0);
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2021',0);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2021',0);
+insert into semesters (semester_type,semester_year,semester_status) values('Spring','2022',0);
+insert into semesters (semester_type,semester_year,semester_status) values('Fall','2022',0);
