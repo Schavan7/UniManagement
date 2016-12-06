@@ -26,11 +26,15 @@
 		<servlet-name>course</servlet-name>
 		<servlet-class>controller.AdminCourseController</servlet-class>
 	</servlet>
-
 	<servlet>
 		<servlet-name>logout</servlet-name>
 		<servlet-class>controller.LogoutServletController</servlet-class>
 	</servlet>
+		<servlet>
+		<servlet-name>address</servlet-name>
+		<servlet-class>controller.AddressController</servlet-class>
+	</servlet>
+	
 
 
 	<servlet-mapping>

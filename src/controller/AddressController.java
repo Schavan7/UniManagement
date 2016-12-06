@@ -23,7 +23,7 @@ import model.dao.StudentDAO;
 /**
  * Servlet implementation class Address
  */
-@WebServlet("/Address")
+@WebServlet("/AddressController")
 public class AddressController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
