@@ -2,10 +2,11 @@ package model;
 
 import java.sql.Date;
 
+import model.dao.AddressDAO;
 import model.dao.DepartmentDao;
 
 public class User {
-	
+
 	private Integer userId;
 	private String cwId;
 	private String firstName;
@@ -77,10 +78,14 @@ public class User {
 		this.deptId = deptId;
 	}
 
-	
+
 	public String getDepartmentName(){
 		DepartmentDao deptDao = new DepartmentDao();
 		return deptDao.getDepartment("dept_id",this.getDeptId().toString()).getDeptName();
+	}
+
+	public Address getAddress(){
+		return  new AddressDAO().getAddress(this.getUserId());
 	}
 
 }
