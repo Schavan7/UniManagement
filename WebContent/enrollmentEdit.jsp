@@ -39,7 +39,7 @@
 			<div class="panel-heading"><%@include file="header.jsp"%></div>
 			<div
 				class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-				<h3 class="panel-title">Edit Enrollment Details</h3>
+				<h3 class="panel-title">Enrollment Details</h3>
 			</div>
 			<div class="panel-body">
 				<div class="row">
@@ -47,19 +47,20 @@
 						<form class="form-inline" action="enrollment.do" method="post">
 							<input type="hidden" name="enrollmentId"
 								value="<c:out value="${enrollment.getUserId()}" />" />
-							<div>select semester:</div>
+							<div><strong>select semester:</strong></div><br/>
 							<div class="dropdown">
 								<select class="btn btn-default dropdown-toggle" name="courseId"
 									id="semDrop">
 									<option>Select course</option>
 									<c:forEach items="${semesters}" var="semester">
-									
+
 										<option value="${semester.getSemesterId()}"><c:out
 												value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
 									</c:forEach>
 								</select>
 							</div>
-							<div id="errorDiv" style="display: none"></div>
+							<br/><br/>
+							<div id="errorDiv" style="display: none" class="alert alert-danger"></div>
 							<div id="tableDiv" style="display: none">
 								<table class="table table-user-information" id="courseTable">
 									<thead>

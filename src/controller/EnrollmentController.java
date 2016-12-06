@@ -88,8 +88,9 @@ public class EnrollmentController extends HttpServlet {
 
 		}else if( action.equalsIgnoreCase( "courses" ) ) {
 			String semId = request.getParameter("semId");
+			ArrayList<Enrollment>  enrollments = dao.getAllEnrollment(student);
 			ArrayList<Course> courses =courseDao.getAllCourses("semester_id", semId);
-			String json  = getCourseJSON(courses);
+			String json  = getCourseJSON(courses,enrollments);
 			response.getWriter().write(json);
 
 		}
@@ -98,9 +99,16 @@ public class EnrollmentController extends HttpServlet {
 
 
 
-	private String getCourseJSON(ArrayList<Course> courses){
+	private String getCourseJSON(ArrayList<Course> courses, ArrayList<Enrollment> enrollments){
 		ArrayList<CourseData> courseData = new  ArrayList<CourseData>();	
 		Iterator<Course> coursesIt = courses.iterator();
+		
+		ArrayList<Integer> enrolledCourseIds =  new  ArrayList<Integer>();;
+		for (Enrollment enrollment : enrollments ){
+			enrolledCourseIds.add(enrollment.getCourseId());
+		}
+		
+		            
 		String json;
 		while (coursesIt.hasNext()) {
 			Course course = coursesIt.next();
@@ -111,6 +119,7 @@ public class EnrollmentController extends HttpServlet {
 			cData.facultyName = course.getFacultyName();
 			cData.startDate = course.getStartDate().toString();
 			cData.endDate = course.getEndDate().toString();
+			cData.isEnrolled = enrolledCourseIds.contains(course.getCourseId());
 			courseData.add(cData);		
 		}
 		if(courseData.size() != 0){
@@ -150,4 +159,5 @@ class CourseData{
 	Integer capacity;
 	String startDate;
 	String endDate;
+	Boolean isEnrolled;
 }
