@@ -10,7 +10,7 @@ public class AddressDAO  extends Dao{
 	public Address getAddress(Integer userId){
 		Address address = null; 
 		try {
-			String sql= "select * from schavan7_addresses where user_Id = " + userId ;
+			String sql= "select * from addresses where user_Id = " + userId ;
 			rs = executeFetchQuery(sql);			
 
 			if (rs.next()){	
@@ -18,9 +18,9 @@ public class AddressDAO  extends Dao{
 				address.setAddressId(Integer.parseInt(rs.getString("address_id")));
 				address.setAddressline1(rs.getString("address_line1"));
 				address.setAddressline2(rs.getString("address_line2"));
-				address.setState(rs.getString("city"));
+				address.setCity(rs.getString("city"));
 				address.setState(rs.getString("state"));	
-				address.setState(rs.getString("zip_code"));
+				address.setZip(rs.getString("zip_code"));
 				address.setPhone(rs.getString("phone"));
 				address.setUserId(rs.getInt("user_id"));
 			}
@@ -63,7 +63,7 @@ public class AddressDAO  extends Dao{
 
 	public void addAddress(Address address){
 		try {
-			String sql= "INSERT into addresses(full_name,address_line1,address_line2,city,state,zip_code,phone,addressable_id,addressable_type) values('" 
+			String sql= "INSERT into addresses(address_line1,address_line2,city,state,zip_code,phone,user_id) values('" 
 					+	 address.getAddressline1() + "','" + address.getAddressline2() + "','" + address.getCity() +
 					"','" +	address.getState() + "','" + address.getZip() + "','" + address.getPhone() + "'," + address.getUserId() + ")";
 			executeModifySelectQuery(sql);			

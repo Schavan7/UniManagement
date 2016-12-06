@@ -31,13 +31,14 @@
 			<ul class="nav navbar-right navbar-nav">
 				<li><a href="#">Home</a></li>
 				<li><a href="#">School Website</a></li>
-				<li><a href="#">Profile</a></li>
+				<li><a href="profile.do?action=profile">Profile</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>
 						<i class="glyphicon glyphicon-chevron-down"></i></a>
 					<ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li class="divider"></li>
 						<li><a href="logout.do">Logout</a></li>
+
 					</ul></li>
 			</ul>
 			</div>

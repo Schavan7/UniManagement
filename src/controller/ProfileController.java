@@ -23,14 +23,7 @@ import model.dao.EnrollmentDAO;
 @WebServlet("/ProfileController")
 public class ProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProfileController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,21 +38,11 @@ public class ProfileController extends HttpServlet {
 			Address address = user.getAddress();
 			request.setAttribute("user", user);
 			request.setAttribute("address", address);
-		}
-		else if( action.equalsIgnoreCase( "edit" ) ) {
-			forward = "ProfileEdit.jsp";
-			
-		}    
+			forward = "profile.jsp";
+		}  
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
 }

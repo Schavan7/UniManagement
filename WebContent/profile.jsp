@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,7 +28,7 @@
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title">
-							<c:out value="${user.getFirstName() + user.getLastName()}" />
+							<c:out value="${user.getFirstName()}  ${user.getLastName()}" />
 						</h3>
 					</div>
 					<div class="panel-body">
@@ -42,7 +43,7 @@
 									<tbody>
 										<tr>
 											<td>CWID:</td>
-											<td><c:out value="${user.getCwId() }" /></td>
+											<td><c:out value="${user.getCwId()}" /></td>
 										</tr>
 										<tr>
 											<td>email:</td>
@@ -50,11 +51,14 @@
 										</tr>
 										<tr>
 											<td>Date of Birth</td>
-											<td>01/24/1988</td>
+											<td><c:out value="${user.getDob()}" /></td>
 										</tr>
 										<tr>
 											<td>Home Address</td>
-											<td><c:out value="${user.getFirstName() + user.getLastName()}" /></td>
+											<td><c:out value="${address.getAddressline1()}  ${address.getAddressline2()}" /> <br>
+												<c:out value="${address.getCity()}  ${address.getState()}" /> <br>
+												<c:out value="${address.getZip()}" />
+												</td>
 										</tr>
 
 										<td>Phone Number</td>
@@ -64,7 +68,8 @@
 									</tbody>
 								</table>
 
-								<a href="#" class="btn btn-primary">Update Address</a>
+								<a href="address.do?action=edit" class="btn btn-primary">Edit
+									Address</a>
 							</div>
 						</div>
 					</div>
