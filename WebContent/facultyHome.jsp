@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Faculty Home Page</title>
 </head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -25,9 +25,34 @@ $('.datepicker').datepicker();
 <body>
 <div class="container-fluid">
 	 <div class="panel panel-default">
-	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
- 	<div class="panel-footer"><%@include file="footer.jsp" %></div>
-	</div>
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>	
+	 <div class= "row">
+	 <div class="col-lg-3">
+	 <ul class="nav nav-stacked">
+                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Settings <i class="glyphicon glyphicon-chevron-down"></i></a>
+                    <ul class="nav nav-stacked collapse in" id="userMenu">
+                        <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Notification</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Options</a></li>
+                        
+                        <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+                    </ul>
+	 </div>
+	 <div class="col-lg-6">
+	 <div class="panel-heading"><h4>Courses:</h4></div>
+	 <div class="panel-body">
+	 	<div class="list-group">	 
+	 	<a href="#" class="list-group-item">Course-1</a>
+	 	<a href="#" class="list-group-item">Course-2</a>
+		 </div>
+	 </div>
+      </div>
+      </div>
+      </div>
+      </div>      
+	 <div class="panel-footer"><%@include file="footer.jsp" %></div>
+		</div>
+		</div>
 
 
 </body>

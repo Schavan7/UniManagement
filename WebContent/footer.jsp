@@ -21,10 +21,12 @@
 <body>
 <nav class="navbar navbar-default navbar-bottom" role="navigation">
 
-<div class= "container">
+<div class= "container-fluid">
 <div class="center-block; width:200px;">
-
+</div>
+</div>
 </nav>
+
 
 </body>
 </html>

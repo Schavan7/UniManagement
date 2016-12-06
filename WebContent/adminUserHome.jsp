@@ -17,20 +17,49 @@
 </script>
 <body>
 <div class="container-fluid">
-	 <div class="panel panel-default">
+<div class="panel panel-default">
 	 <div class="panel-heading"><%@include file="header.jsp" %></div>
-	 <ul class="Admin-page">
-
-		<li><a href = "student.do?action=index">Student Portal</a></li>
-		<li><a href = "#">Faculty</a></li>
-		<li><a href = "department.do?action=index">Department</a></li>
-		<li><a href = "#">Courses</a></li>
-		<li><a href = "#">Enrollment</a></li>
-	</ul>
-	 
-	 <div class="panel-footer"><%@include file="footer.jsp" %></div>
+	 <div class="container">
+ <div class="row">           
+ <div class="col-sm-2 col-lg-2">      	
+	<div class="dash-unit">
+		<div class="thumbnail"><img src="images/students.png" class="img-fluid"	alt="Responsive image"></div>
+		<a href = "student.do?action=index"><center><h3>Student Portal</h3></center></a>
 	</div>
-
+ </div>
+ 
+  <div class="col-sm-2 col-lg-2">      	
+	<div class="dash-unit">
+		<div class="thumbnail"><img src="images/faculty.png" class="img-fluid"	alt="Responsive image"></div>
+		<a href = "faculty.do?action=index"><center><h3>Faculty Portal</h3></center></a>
+	</div>
+ </div>
+ 
+   <div class="col-sm-2 col-lg-2">      	
+	<div class="dash-unit">
+		<div class="thumbnail"><img src="images/department.png" class="img-fluid"	alt="Responsive image"></div>
+		<a href = "department.do?action=index"><center><h3>Department Portal</h3></center></a>
+	</div>
+ </div>
+ 
+   <div class="col-sm-2 col-lg-2">      	
+	<div class="dash-unit">
+		<div class="thumbnail"><img src="images/courses.png" class="img-fluid"	alt="Responsive image"></div>
+		<a href = "course.do?action=index"><center><h3>Courses Portal</h3></center></a>
+	</div>
+ </div>
+ 
+   <div class="col-sm-2 col-lg-2">      	
+	<div class="dash-unit">
+		<div class="thumbnail"><img src="images/enrollment.png" class="img-fluid"	alt="Responsive image"></div>
+		<a href = "enrollment.do?action=index"><center><h3>Enrollment Portal</h3></center></a>
+	</div>
+	</div>
+	</div>
+	</div>
+	 <div class="panel-footer"><%@include file="footer.jsp" %></div>
+          </div>
+ </div>
 
 </body>
 </html>

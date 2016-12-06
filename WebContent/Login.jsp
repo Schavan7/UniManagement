@@ -17,6 +17,11 @@
 </head>
 <body>
 	<div class="container-fluid">
+	<nav class="navbar navbar-static">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<img src="images/iitlogo.gif" class="img-fluid"	alt="Responsive image"> 
+		</div>
 	
 		<div id="content">
 			<form method="post" action="login.do">
@@ -27,8 +32,7 @@
 				</div>
 				<%} %>
 				<div>
-				
-					<input type="email" name="userName" placeholder="Username" required="true" id="username">
+				<input type="email" name="userName" placeholder="Username" required="true" id="username">
 				</div>	
 				<div>
 					<input type="password" name="password" title="5 to 10 characters" placeholder="Password" required="true" id="password"> 	
