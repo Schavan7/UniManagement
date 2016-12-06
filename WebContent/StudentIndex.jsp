@@ -41,7 +41,6 @@
 					<th>Password</th>
 					<th>Date of Birth</th>
 					<th>Phone</th>
-					<th>User Type</th>
 					<th>Department</th>
 					<th></th>
 					<th></th>
@@ -57,8 +56,6 @@
 						<td><c:out value="${student.getPassword()}" /></td>
 						<td><c:out value="${student.getDob()}" /></td>
 						<td><c:out value="${student.getPhone()}" /></td>
-						<td><c:out value="${student.getUserType()}" /></td>
-						
 						<td><c:out value="${student.getDepartmentName()}" /></td>
 						<td><a class="btn btn-primary"
 							href="student.do?action=edit&studentId=<c:out value='${student.getUserId() }'/>"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="<c:out value='${student.getUserId() }'/>" >

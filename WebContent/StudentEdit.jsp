@@ -5,9 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Edit form</title>
+<title>Student form</title>
 </head>
-<title>Student Edit Form</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,66 +18,70 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	
 </script>
 
 <body>
 
 	<div class="container-fluid">
-	 <div class="panel panel-default">
-	 <div class="panel-heading">
-	 <%@include file="header.jsp" %></div>
-	 <div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-				<h3 class="panel-title">Student Edit Form</h3>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<%@include file="header.jsp"%></div>
+			<div class="container">
+				<div class="row">
+					<div
+						class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+						<h3 class="panel-title">Student Edit Form</h3>
 					</div>
 					<div class="panel-body">
-						<div class="row"><div class=" col-md-9 col-lg-9 ">
+						<div class="row">
+							<div class=" col-md-9 col-lg-9 ">
 								<form class="form-inline" action="student.do" method="post">
-								<input type="hidden" name="studentId" value="<c:out value="${student.getUserId()}" />" />
-									<table class="table table-user-information" >
+									<input type="hidden" name="studentId"
+										value="<c:out value="${student.getUserId()}" />" />
+									<table class="table table-user-information">
 										<tbody>
 											<tr>
 												<td>CWID:</td>
 												<td><input type="text" name="cwId" class="form-control"
 													id="cwid" value="<c:out value="${student.getCwId()}" />"></td>
 											</tr>
-											<td>First Name:</td>
-											<td><input type="text" name="firstName"
-												class="form-control" id="fname"
-												value="<c:out value="${student.getFirstName()}" />"></td>
+											<tr>
+												<td>First Name:</td>
+												<td><input type="text" name="firstName"
+													class="form-control" id="fname"
+													value="<c:out value="${student.getFirstName()}" />"></td>
 											</tr>
-											<td>Last Name:</td>
-											<td><input type="text" name="lastName"
-												class="form-control" id="lname"
-												value="<c:out value="${student.getLastName()}" />"></td>
+											<tr>
+												<td>Last Name:</td>
+												<td><input type="text" name="lastName"
+													class="form-control" id="lname"
+													value="<c:out value="${student.getLastName()}" />"></td>
 											</tr>
-											<td>Email:</td>
-											<td><input type="email" name="email"
-												class="form-control" id="email"
-												value="<c:out value="${student.getEmail()}" />"></td>
+											<tr>
+												<td>Email:</td>
+												<td><input type="email" name="email"
+													class="form-control" id="email"
+													value="<c:out value="${student.getEmail()}" />"></td>
 											</tr>
-											<td>Password:</td>
-											<td><input type="text" name="password"
-												class="form-control" id="password"
-												value="<c:out value="${student.getPassword()}" />"></td>
+											<tr>
+												<td>Password:</td>
+												<td><input type="text" name="password"
+													class="form-control" id="password"
+													value="<c:out value="${student.getPassword()}" />"></td>
 											</tr>
-											<td>DOB</td>
-											<td><input placeholder="dob" class="textbox-n" name="Dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dob" value="<c:out value="${student.getDob()}" />">
-												</td>
+											<tr>
+												<td>DOB</td>
+												<td><input placeholder="dob" class="textbox-n"
+													name="Dob" type="text" onfocus="(this.type='date')"
+													onblur="(this.type='text')" id="dob"
+													value="<c:out value="${student.getDob()}" />"></td>
 											</tr>
-											<td>Phone No:</td>
-											<td><input type="text" name="phone" class="form-control"
-												id="phone" value="<c:out value="${student.getPhone()}" />"></td>
-											</tr>
-											<td>User Type</td>
-											<td><div class="dropdown">
-													<select name="userType" class="dropdown">
-														<option value="Student">Student</option>
-														<option value="Faculty">Faculty</option>
-														<option value="Admin">Admin</option>
-													</select>
-												</div></td>
+											<tr>
+												<td>Phone No:</td>
+												<td><input type="text" name="phone"
+													class="form-control" id="phone"
+													value="<c:out value="${student.getPhone()}" />"></td>
 											</tr>
 											<tr>
 												<td>Department Name</td>
@@ -95,14 +98,13 @@
 									</table>
 									<input type="submit" class="btn btn-primary" value="Update" />
 								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-				</div>
 			</div>
 		</div>
-		<div class="panel-footer"><%@include file="footer.jsp" %></div>
-	</div>
+		<div class="panel-footer"><%@include file="footer.jsp"%></div>
 	</div>
 </body>
 </html>

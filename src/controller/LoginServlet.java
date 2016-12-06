@@ -32,7 +32,6 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 		try{
 			String userName = request.getParameter("userName");
 			String password = request.getParameter("password");
@@ -42,8 +41,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession(true); 
 				session.setAttribute("currentUser", user); 
 				if(user.getUserType().equals("Student")){
-					response.sendRedirect("studentHome.jsp"); 
-
+					response.sendRedirect("enrollment.do"); 
 				}else if(user.getUserType().equals("Admin")){
 					response.sendRedirect("adminUserHome.jsp"); 
 

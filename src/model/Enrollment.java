@@ -1,5 +1,8 @@
 package model;
 import java.sql.Date;
+
+import model.dao.CourseDAO;
+import model.dao.FacultyDAO;
 public class Enrollment {
 	private Integer enrollId;
 	private Date startDate;
@@ -9,6 +12,8 @@ public class Enrollment {
 	private Integer courseId;
 	private Integer classId;
 	private Integer studentId;
+	private Integer semesterId;
+	
 	
 	public Integer getEnrollId() {
 		return enrollId;
@@ -58,6 +63,18 @@ public class Enrollment {
 	public void setStudentId(Integer studentId) {
 		this.studentId = studentId;
 	}
+	public Integer getSemesterId() {
+		return semesterId;
+	}
+	public void setSemesterId(Integer semesterId) {
+		this.semesterId = semesterId;
+	}
 	
+	
+	public String getFacultyName(){
+		CourseDAO dao = new CourseDAO();
+		Course course = dao.getCourse("course_id", this.getCourseId().toString());
+		return course.getFacultyName();
+	}
 
 }

@@ -82,8 +82,6 @@ public class AdminCourseController extends HttpServlet {
 		course.setStartDate(Date.valueOf(request.getParameter("startDate")));
 		course.setEndDate(Date.valueOf(request.getParameter("endDate")));
 		course.setDeptId(Integer.parseInt(request.getParameter("deptId")));
-		//student.setDob(Date.valueOf(request.getParameter("")));
-		//student.setDob(Date.valueOf("2017-10-10"));
 		String courseId=request.getParameter("courseId");
 		System.out.println(courseId);
 
@@ -92,8 +90,6 @@ public class AdminCourseController extends HttpServlet {
 		else {
 			course.setCourseId(Integer.parseInt(courseId));
 			dao.updateCourses(course);
-			//student.setUserId( Integer.parseInt(studentId));
-			//dao.updateStudent(student);
 		}
 		RequestDispatcher view = request.getRequestDispatcher("courseIndex.jsp");
 		request.setAttribute("courses", dao.getAllCourses());

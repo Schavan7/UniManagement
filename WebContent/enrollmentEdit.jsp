@@ -8,6 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Edit Enrollment Details</title>
 </head>
+
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"
+	type="text/javascript"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="js/app.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,6 +31,7 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	
 </script>
 <body>
 	<div class="container-fluid">
@@ -34,55 +47,33 @@
 						<form class="form-inline" action="enrollment.do" method="post">
 							<input type="hidden" name="enrollmentId"
 								value="<c:out value="${enrollment.getUserId()}" />" />
-							<table class="table table-user-information">
-								<tbody>
-									<tr>
-										<td>Course Name:</td>
-										<td><div class="dropdown">
-												<select class="btn btn-default dropdown-toggle"
-													name="courseId">
-													<c:forEach items="${courses}" var="course">
-														<option value="${course.getCourseId()}"><c:out
-																value="${course.getCourseName()}" /></option>
-													</c:forEach>
-												</select>
-											</div></td>
-									</tr>
-									<tr>
-										<td>Class Id:</td>
-										<td><input type="text" name="classId"
-											class="form-control" id="classId"></td>
-									</tr>
-									<tr>
-										<td>Start Date:</td>
-										<td><input placeholder="Start Date" class="textbox-n"
-											name="startDate" type="text" onfocus="(this.type='date')"
-											onblur="(this.type='text')" id="date"></td>
-									</tr>
-									<tr>
-										<td>End Date:</td>
-										<td><input placeholder="End Date" class="textbox-n"
-											name="endDate" type="text" onfocus="(this.type='date')"
-											onblur="(this.type='text')" id="date"></td>
-									</tr>
-
-									<tr>
-										<td>End Date:</td>
-										<td><input placeholder="End Date" class="textbox-n"
-											name="endDate" type="" onfocus="(this.type='date')"
-											onblur="(this.type='text')" id="date"></td>
-									</tr>
-
-									<tr>
-										<td>Grade:</td>
-										<td><input type="text" name="grade" class="form-control"
-											id="grade"></td>
-									</tr>
-								</tbody>
-							</table>
-
-							<a href="#" class="btn btn-primary">Update Enrollment Details</a>
-							<a href="#" class="btn btn-primary">View Enrollment Details</a>
+							<div>select semester:</div>
+							<div class="dropdown">
+								<select class="btn btn-default dropdown-toggle" name="courseId"
+									id="semDrop">
+									<option>Select course</option>
+									<c:forEach items="${semesters}" var="semester">
+									
+										<option value="${semester.getSemesterId()}"><c:out
+												value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
+									</c:forEach>
+								</select>
+							</div>
+							<div id="errorDiv" style="display: none"></div>
+							<div id="tableDiv" style="display: none">
+								<table class="table table-user-information" id="courseTable">
+									<thead>
+										<th>Course Name</th>
+										<th>Faculty Name</th>
+										<th>Start Date</th>
+										<th>End Date</th>
+										<th>Capacity</th>
+										<th></th>
+									</thead>
+									<tbody id="tableData">
+									</tbody>
+								</table>
+							</div>
 					</div>
 				</div>
 			</div>

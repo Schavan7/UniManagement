@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Home</title>
-</head>
+<title>List of Enrollment List</title>
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<script type="text/javascript">
-	$('.datepicker').datepicker();
-</script>
 <!-- jQuery library -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -21,49 +20,54 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	
 </script>
-
+</head>
 <body>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
 	<div class="container-fluid">
 		<div class="panel panel-default">
 			<div class="panel-heading"><%@include file="header.jsp"%></div>
 			<div class="row">
-				<div class="col-lg-3">
-					<ul class="nav nav-stacked">
-						<li class="nav-header"><a href="#" data-toggle="collapse"
-							data-target="#userMenu">Settings <i
-								class="glyphicon glyphicon-chevron-down"></i></a>
-							<ul class="nav nav-stacked collapse in" id="userMenu">
-								<li class="active"><a href="#"><i
-										class="glyphicon glyphicon-home"></i> Home</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-envelope"></i>
-										Notification</a></li>
-								<li><a href="#"><i class="glyphicon glyphicon-cog"></i>
-										Options</a></li>
-
-								<li><a href="#"><i class="glyphicon glyphicon-off"></i>
-										Logout</a></li>
-							</ul>
+				<div class="pull-right">
+					<a class="btn btn-success" href="enrollment.do?action=edit">Enroll</a>
 				</div>
-				<div class="col-lg-6">
-					<div class="panel-heading">
-						<h4>Courses:</h4>
-					</div>
-					<div class="panel-body">
-						<div class="list-group">
-							<a href="enrollment.do?action=index" class="list-group-item">Course-1</a>
-							<a href="#" class="list-group-item">Course-2</a>
-						</div>
+				<div class="col-md-12">
+					<h2>List of Enrollment Details:</h2>
+					<div class="table-responsive">
+						<table id="mytable" class="table table-bordred table-striped">
+							<thead>
+								<th>Course Name</th>
+								<th>Faculty Name<th>
+								<th>Start Date</th>
+								<th>End Date</th>
+								<th>Grade</th>
+								<th></th>
+							</thead>
+							<tbody>
+								<c:forEach items="${enrollments}" var="enrollment">
+									<tr>
+										<td><c:out value="${enrollment.getCourseName()}" /></td>
+										<td><c:out value="${course.getFacultyName()}" /></td>
+										<td><c:out value="${course.getStartDate()}" /></td>
+										<td><c:out value="${course.getEndDate()}" /></td>
+										<td><c:out value="${course.getGrade()}" /></td>
+										<td><a class="btn btn-primary"
+											href="course.do?action=delete&courseId=<c:out value='${course.getCourseId() }'/>">Delete</a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+
+
+						</table>
 					</div>
 				</div>
 			</div>
-
+			<div class="panel-footer"><%@include file="footer.jsp"%></div>
 		</div>
 	</div>
-	<div class="panel-footer"><%@include file="footer.jsp"%></div>
-	</div>
 
-
-	<div class="panel-footer"><%@include file="footer.jsp"%></div>
-	</div>
 </body>
 </html>
