@@ -27,7 +27,7 @@
 			<form method="post" action="login.do">
 				<h1>Login Form</h1>
 				<% if(request.getAttribute("errMsg") != null) { %>
-				<div>
+				<div id="errMsg">
 				<%= request.getAttribute("errMsg") %>
 				</div>
 				<%} %>
