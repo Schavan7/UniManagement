@@ -79,9 +79,9 @@ public class FacultyDAO extends UserDAO{
 
 	public void updateFaculty(Faculty ft){
 		try {
-			String sql= "UPDATE users SET firstName = '" + ft.getFirstName() + "',lastName='" + ft.getLastName() +
+			String sql= "UPDATE users SET first_Name = '" + ft.getFirstName() + "',last_Name='" + ft.getLastName() +
 					"', email='" + ft.getEmail() + "', password= '"+ ft.getPassword() + "',phone='" + ft.getPhone() + 
-					 "',DOB='" + ft.getDob() + "',cwid='" + ft.getCwId() + "',dept_id='" + ft.getDeptId() +"'";
+					 "',DOB='" + ft.getDob() + "',cwid='" + ft.getCwId() + "',dept_id='" + ft.getDeptId() +"' where user_id=" + ft.getUserId();
 			executeModifySelectQuery(sql);					
 		} 
 		catch (Exception e) {
