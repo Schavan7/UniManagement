@@ -56,6 +56,31 @@ public class CourseDAO extends Dao{
 			return list;		
 		}
 
+		public ArrayList<Course> getAllCourses(String columnName, String value){	
+			ArrayList <Course> list = new ArrayList<Course>();
+			try {
+				String sql= "select * from courses where " + columnName +  "='" + value + "'" ;
+				rs = executeFetchQuery (sql);			
+
+				while (rs.next()){	
+					Course course =  new Course();
+					course.setCourseId(Integer.parseInt(rs.getString("course_id")));
+					course.setCourseName(rs.getString("course_name"));
+					course.setDeptId(rs.getInt("dept_id"));
+					course.setStartDate(rs.getDate("startdate"));
+					course.setEndDate(rs.getDate("enddate"));
+					course.setSemesterId(rs.getInt("semester_id"));
+					course.setFacultyId(rs.getInt("faculty_id"));
+					course.setCapacity(rs.getInt("capacity"));
+					list.add(course);
+				}
+
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}	
+			return list;		
+		}
 
 		public boolean addCourse(Course course){
 			try {
