@@ -29,6 +29,8 @@
 	<div class="container-fluid">
 		<div class="panel panel-default">
 			<div class="panel-heading"><%@include file="header.jsp"%></div>
+			<div class="container">
+						<div style="height:500px">
 			<div class="row">
 				<div class="pull-right">
 					<a class="btn btn-success" href="enrollment.do?action=edit">Enroll</a>
@@ -63,8 +65,10 @@
 					</div>
 				</div>
 			</div>
+			</div>
+			</div>
+			</DIV>
 			<div class="panel-footer"><%@include file="footer.jsp"%></div>
-		</div>
 	</div>
 
 </body>
