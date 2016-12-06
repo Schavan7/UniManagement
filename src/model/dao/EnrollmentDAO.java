@@ -3,7 +3,9 @@ package model.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.Course;
 import model.Enrollment;
+import model.Faculty;
 import model.Student;
 import model.User;
 
@@ -59,6 +61,31 @@ public class EnrollmentDAO extends Dao{
 			return list;		
 		}
 
+		public ArrayList<Enrollment> getAllFaculty(String course_Id,String faculty_Id){	
+			ArrayList <Enrollment> list = new ArrayList<Enrollment>();
+			try {
+				String sql= "select * from enrollments where faculty_id="+course_Id+"and course_id="+faculty_Id ;
+				rs = executeFetchQuery (sql);			
+
+				while (rs.next()){	
+					Enrollment et =  new Enrollment();
+					et.setEnrollId(rs.getInt("enrollment_id"));
+					et.setCourseId(rs.getInt("course_id"));
+					et.setCourseName(rs.getString("course_name"));
+					et.setEndDate(rs.getDate("enddate"));
+					et.setStartDate(rs.getDate("startdate"));
+					et.setGrade(rs.getDouble("grade"));
+					et.setStudentId(rs.getInt("student_id"));
+					et.setSemesterId(rs.getInt("semester_id"));
+					list.add(et);
+				}
+
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}	
+			return list;		
+		}
 
 		public boolean addEnrollment(Enrollment et){
 			try {

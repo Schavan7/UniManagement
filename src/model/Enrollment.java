@@ -3,6 +3,7 @@ import java.sql.Date;
 
 import model.dao.CourseDAO;
 import model.dao.FacultyDAO;
+import model.dao.StudentDAO;
 public class Enrollment {
 	private Integer enrollId;
 	private Date startDate;
@@ -76,5 +77,11 @@ public class Enrollment {
 		Course course = dao.getCourse("course_id", this.getCourseId().toString());
 		return course.getFacultyName();
 	}
+	public String getStudentName(){
+		StudentDAO dao=new StudentDAO();
+		Student student =dao.getStudent("user_id",this.getStudentId().toString());
+		return student.getFirstName()+" "+student.getLastName();
+	}
+	
 
 }
