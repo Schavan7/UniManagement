@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,38 +33,63 @@
                       
                       <tr>
                         <td>Course Name:</td>
-                        <td><input type="text"name="courseName" class="form-control" id="courseName" value="<c:out value="${course.getCourseName()}" />"></td>
+                        <td><input type="text"name="courseName" class="form-control" id="courseName" value="<c:out value="${course.getCourseName()}" />"/></td>
                       </tr>
                       <tr>
-                        <td>Department name:</td>
-                        <td><div class="dropdown">
-						<button class="btn btn-default dropdown-toggle" type="button"
-							name="deptId" id="dropdownMenu1" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="true">
-							Department Name <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="#">ITM</a></li>
-							<li><a href="#">CS</a></li>
-							<li><a href="#">EC</a></li>
-							<li><a href="#">EEE</a></li>
-						</ul>
+                        <td>Course Capacity:</td>
+                        <td><input type="text"name="capacity" class="form-control" id="courseName" value="<c:out value="${course.getCapacity()}" />"/></td>
+                      </tr>
+                      <tr>
+                        <td>Department Name</td>
+												<td><div class="dropdown">
+														<select class="btn btn-default dropdown-toggle"
+															name="deptId">
+															<c:forEach items="${departments}" var="department">
+																<option value="${department.getDeptId()}"><c:out
+																		value="${department.getDeptName()}" /></option>
+															</c:forEach>
+														</select>
+													</div>
+					</div></td>
+					
+					<td>Faculty Name</td>
+												<td><div class="dropdown">
+														<select class="btn btn-default dropdown-toggle"
+															name="facultyId">
+															<c:forEach items="${faculty}" var="faculty">
+																<option value="${faculty.getUserId()}"><c:out
+																		value="${faculty.getFirstName()}" /></option>
+															</c:forEach>
+														</select>
+													</div>
+					</div></td>
+					
+					<td>Semester</td>
+												<td><div class="dropdown">
+														<select class="btn btn-default dropdown-toggle"
+															name="semesterId">
+															<c:forEach items="${semesters}" var="semester">
+																<option value="${semester.getSemesterId()}"><c:out
+																		value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
+															</c:forEach>
+														</select>
+													</div>
 					</div></td>
                       </tr>               
                        <tr>
                         <td>Start Date:</td>
-                          <td> <input placeholder="startDate" class="textbox-n" name="startDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                          <td> <input placeholder="startDate" class="textbox-n" name="startDate" value="${course.getStartDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
                       </tr>
                          
                          <tr>
                          <td>End Date:</td>
-                           <td> <input placeholder="endDate" class="textbox-n" name="endDate" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                           <td> <input placeholder="endDate" class="textbox-n" name="endDate" value="${course.getEndDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
                          </tr> 
                      </tbody>
                   </table>
                   
-                  <a href="#" class="btn btn-primary">Update Courses</a>
-                  <a href="#" class="btn btn-primary">View Courses</a>
+                 <input type="submit" class="btn btn-primary" value="Update" />
+                  
 				</form>               
                 </div>
               </div>

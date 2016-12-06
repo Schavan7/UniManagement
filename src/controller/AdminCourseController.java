@@ -13,14 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Course;
 import model.Department;
+import model.Faculty;
+import model.Semester;
 import model.dao.CourseDAO;
 import model.dao.DepartmentDao;
+import model.dao.FacultyDAO;
+import model.dao.SemesterDAO;
 
 
 /**
  * Servlet implementation class Course Controller
  */
-//@WebServlet("/AdminStudentController")
+@WebServlet("/AdminCourseController")
 public class AdminCourseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +37,7 @@ public class AdminCourseController extends HttpServlet {
 		String forward = "";
 		CourseDAO dao = new CourseDAO();
 		if( action.equalsIgnoreCase("index") ) {
-	
+	System.out.println("This is index");
 			ArrayList<Course>  course = dao.getAllCourses();
 			request.setAttribute("courses", course);
 			forward = "courseIndex.jsp";
@@ -53,6 +57,12 @@ public class AdminCourseController extends HttpServlet {
 			DepartmentDao deptDao = new DepartmentDao();
 			ArrayList<Department>  departments = deptDao.getAllDepartments();
 			request.setAttribute("departments", departments);
+			FacultyDAO factDao = new FacultyDAO();
+			ArrayList<Faculty>  faculty = factDao.getAllFaculty();
+			request.setAttribute("faculty", faculty);
+			SemesterDAO semDao = new SemesterDAO();
+			ArrayList<Semester>  semesters = semDao.getAllSemester();
+			request.setAttribute("semesters", semesters);
 		}    
 		RequestDispatcher view = request.getRequestDispatcher(forward);
 		view.forward(request, response);
@@ -66,13 +76,16 @@ public class AdminCourseController extends HttpServlet {
 		CourseDAO dao = new CourseDAO();
 
 		course.setCourseName(request.getParameter("courseName"));
+		course.setCapacity(Integer.parseInt(request.getParameter("capacity")));
+		course.setSemesterId(Integer.parseInt(request.getParameter("semesterId")));
+		course.setFacultyId(Integer.parseInt(request.getParameter("facultyId")));
 		course.setStartDate(Date.valueOf(request.getParameter("startDate")));
-		course.setStartDate(Date.valueOf(request.getParameter("endDate")));
+		course.setEndDate(Date.valueOf(request.getParameter("endDate")));
 		course.setDeptId(Integer.parseInt(request.getParameter("deptId")));
 		//student.setDob(Date.valueOf(request.getParameter("")));
 		//student.setDob(Date.valueOf("2017-10-10"));
 		String courseId=request.getParameter("courseId");
-		
+		System.out.println(courseId);
 
 		if( courseId == null || courseId.isEmpty() )
 			dao.addCourse(course);

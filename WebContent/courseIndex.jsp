@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,34 +27,37 @@
         <div class="col-md-12">
         <h2>List of Courses:</h2>
         <div class="table-responsive">                
+        	<a href="course.do?action=edit">Add Course</a></td>
               <table id="mytable" class="table table-bordred table-striped">                   
                    <thead>                   
-                   <th>Course ID</th>
                     <th>Course Name</th>
                      <th>Department Name</th>
                      <th>Start Date</th>
 					<th>End Date</th>
-                      <th>Edit</th>                     
-                       <th>Delete</th>
+					<th>Semester</th>
+					<th>Faculty</th>
+					<th>Capacity</th>
                    	</thead>
     				<tbody>    
+    					<c:forEach items="${courses}" var="course">
     					<tr>
-    							<td>Mohsin</td>
-    							<td>Irshad</td>
-    							<td>CB 106/107 Street</td>
-    							<td>12/02/2016</td>
-								<td>12/05/2016</td>
-    							<td><p data-placement="top" data-toggle="tooltip" title="Edit">
-    								<button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" >
+    							<td><c:out value="${course.getCourseName()}" />	</td>
+    							<td><c:out value="${course.getDepartmentName()}" />	</td>
+    							<td><c:out value="${course.getStartDate()}" />	</td>
+    							<td><c:out value="${course.getEndDate()}" />	</td>
+    							<td><c:out value="${course.getSemesterName()}" />	</td>
+    							<td><c:out value="${course.getFacultyName()}" />	</td>
+    							<td><c:out value="${course.getCapacity()}" />	</td>
+    							
+    							<td><a class="btn btn-primary"
+							href="course.do?action=edit&courseId=<c:out value='${course.getCourseId() }'/>"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="<c:out value='${student.getUserId() }'/>" >
     								<span class="glyphicon glyphicon-pencil"></span>
-    								</button></p>
+    								</button></a>
     							</td>
-    							<td><p data-placement="top" data-toggle="tooltip" title="Delete">
-    							<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" >
-    							<span class="glyphicon glyphicon-trash"></span>
-    							</button></p>
+    							<td><a class="btn btn-primary" href="course.do?action=delete&courseId=<c:out value='${course.getCourseId() }'/>">Delete</a>
     							</td>
     					</tr>
+    				</c:forEach>
     				</tbody>    
 				</table>
 			</div>

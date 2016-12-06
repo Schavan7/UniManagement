@@ -11,6 +11,7 @@ semester_type varchar(50),
 semester_year varchar(25),
 semester_status tinyint(1));
 
+
 CREATE TABLE IF NOT EXISTS users
 (user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 cwid varchar(25),
@@ -80,6 +81,7 @@ values('student','student@example.com','password',1,'Student');
 insert into users (first_name,email,password,dept_id,user_type)
 values('faculty','faculty@example.com','password',1,'Faculty');
 
+
 insert into semesters (semester_type,semester_year,semester_status) values('Spring','2017',1);
 insert into semesters (semester_type,semester_year,semester_status) values('Fall','2017',1);
 insert into semesters (semester_type,semester_year,semester_status) values('Spring','2018',1);
@@ -92,3 +94,4 @@ insert into semesters (semester_type,semester_year,semester_status) values('Spri
 insert into semesters (semester_type,semester_year,semester_status) values('Fall','2021',0);
 insert into semesters (semester_type,semester_year,semester_status) values('Spring','2022',0);
 insert into semesters (semester_type,semester_year,semester_status) values('Fall','2022',0);
+
