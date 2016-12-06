@@ -18,14 +18,16 @@
 	<div class="container-fluid">
  		<div class="panel panel-default">
 	 		<div class="panel-heading"><%@include file="header.jsp" %></div>
-	 		<div class="container">
-				<h3>Course View</h3>
-            	<div class="panel-body">
-              		<div class="row">
-                		<div class=" col-md-9 col-lg-9 "> 
-                			<form class="form-inline" action="course.do" method="post">
-                  				<input type="hidden" name="courseId" value="<c:out value="${course.getCourseId()}" />" />
-                  					<table class="table table-user-information">
+	 		<div class= "panel-body">
+	 			<div style="height:500px">
+	 				<div class="container">
+						<h3>Course View</h3>
+            			<div class="panel-body">
+              				<div class="row">
+                				<div class=" col-md-9 col-lg-9 "> 
+                					<form class="form-inline" action="course.do" method="post">
+                  						<input type="hidden" name="courseId" value="<c:out value="${course.getCourseId()}" />" />
+                  						<table class="table table-user-information">
                    						 <tbody>
                       						<tr>
                         						<td>Course Name:</td>
@@ -90,8 +92,10 @@
               		</div>
 	            </div>
             </div>
-           </div>
-           <div class="panel-footer"><%@include file="footer.jsp" %></div>
+          </div>
+          </div>
+         <div class="panel-footer"><%@include file="footer.jsp" %></div>
+         </div>
          </div>
 	</body>
 </html>

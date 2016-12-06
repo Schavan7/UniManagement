@@ -19,29 +19,29 @@
 <body>
 <body>
 <div class="container-fluid">
-	 <div class="panel panel-default">
-	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 <div class="container">
- 	<div style="height:500px">
-		<h1>Faculty Edit Form</h1>
-		<div class="pull-right"><a class="btn btn-success" href="faculty.do?action=edit">Add Faculty</a></div>
-					
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>CWID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
-					<th>Password</th>
-					<th>Date of Birth</th>
-					<th>Phone</th>
-					<th>Department</th>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${faculty}" var="faculty">
+	<div class="panel panel-default">
+	 	<div class="panel-heading"><%@include file="header.jsp" %></div>	 
+	 	<div class="container">
+ 			<div style="height:500px">
+			<h1>Faculty Edit Form</h1>
+			<div class="pull-right"><a class="btn btn-success" href="faculty.do?action=edit">Add Faculty</a></div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>CWID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Date of Birth</th>
+						<th>Phone</th>
+						<th>Department</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${faculty}" var="faculty">
 					<tr>
 						<td><c:out value="${faculty.getCwId()}" />	</td>
 						<td><c:out value="${faculty.getFirstName()}" /></td>
@@ -51,25 +51,18 @@
 						<td><c:out value="${faculty.getDob()}" /></td>
 						<td><c:out value="${faculty.getPhone()}" /></td>
 						<td><c:out value="${faculty.getDepartmentName()}" /></td>
-						<td><a class="btn btn-primary"
-							href="faculty.do?action=edit&facultyId=<c:out value='${faculty.getUserId() }'/>"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="<c:out value='${faculty.getUserId() }'/>" >
-    								<span class="glyphicon glyphicon-pencil"></span>
-    								</button></a></td>
-						<td>
-						<a class="btn btn-danger" href="faculty.do?action=delete&facultyId=<c:out value='${faculty.getUserId() }'/>">Delete</a>
+						<td><a class="btn btn-primary" href="faculty.do?action=edit&facultyId=<c:out value='${faculty.getUserId() }'/>">Edit</a>
+    					</td>
+						<td><a class="btn btn-danger" href="faculty.do?action=delete&facultyId=<c:out value='${faculty.getUserId() }'/>">Delete</a>
 						</td>
 					</tr>
-				</c:forEach>
-
-			</tbody>
+					</c:forEach>
+				</tbody>
 		</table>
-		</div>
-		</div>
-		</div>
-		<div class="panel-footer"><%@include file="footer.jsp" %></div>
-		
 	</div>
-</body>
-
+</div>
+</div>
+<div class="panel-footer"><%@include file="footer.jsp" %></div>
+</div>
 </body>
 </html>

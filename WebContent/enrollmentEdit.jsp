@@ -13,77 +13,56 @@
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 	rel="stylesheet" type="text/css" />
 
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"
-	type="text/javascript"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
-	type="text/javascript"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
+<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-	
-</script>
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <body>
 	<div class="container-fluid">
 		<div class="panel panel-default">
 			<div class="panel-heading"><%@include file="header.jsp"%></div>
-			<div
-				class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-				<h3 class="panel-title">Enrollment Details</h3>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class=" col-md-9 col-lg-9 ">
-						<form class="form-inline" action="enrollment.do" method="post">
-							<input type="hidden" name="enrollmentId"
-								value="<c:out value="${enrollment.getUserId()}" />" />
-							<div><strong>select semester:</strong></div><br/>
-							<div class="dropdown">
-								<select class="btn btn-default dropdown-toggle" name="courseId"
-									id="semDrop">
-									<option>Select course</option>
-									<c:forEach items="${semesters}" var="semester">
-
-										<option value="${semester.getSemesterId()}"><c:out
-												value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
-									</c:forEach>
-								</select>
-							</div>
+				<h2>Enrollment Details</h2>
+				<div class="panel-body">
+					<div class="container">
+						<div style="height:500px">
+							<div class="row">
+								<div class=" col-md-9 col-lg-9 ">
+									<form class="form-inline" action="enrollment.do" method="post">
+										<input type="hidden" name="enrollmentId" value="<c:out value="${enrollment.getUserId()}" />" />
+										<strong>Select semester:</strong>
+										<div class="dropdown">
+											<select class="btn btn-default dropdown-toggle" name="courseId" id="semDrop">
+												<option>Select course</option>
+													<c:forEach items="${semesters}" var="semester">
+														<option value="${semester.getSemesterId()}"><c:out value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
+													</c:forEach>
+											</select>
+										</div>
+										</form>
 							<br/><br/>
-							<div id="errorDiv" style="display: none" class="alert alert-danger"></div>
-							<div id="tableDiv" style="display: none">
-								<table class="table table-user-information" id="courseTable">
-									<thead>
-										<th>Course Name</th>
-										<th>Faculty Name</th>
-										<th>Start Date</th>
-										<th>End Date</th>
-										<th>Capacity</th>
-										<th></th>
-									</thead>
-									<tbody id="tableData">
-									</tbody>
-								</table>
+										<div id="errorDiv" style="display: none" class="alert alert-danger"></div>
+										<div id="tableDiv" style="display: none">
+											<table class="table table-user-information" id="courseTable">
+												<thead>
+													<th>Course Name</th>
+													<th>Faculty Name</th>
+													<th>Start Date</th>
+													<th>End Date</th>
+													<th>Capacity</th>
+												</thead>
+												<tbody id="tableData">
+												</tbody>
+											</table>
+										</div>
+								</div>
 							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
+			<div class="panel-footer"><%@include file="footer.jsp"%></div>
 		</div>
-	</div>
-	</div>
-	<div class="panel-footer"><%@include file="footer.jsp"%></div>
-	</div>
-	</div>
-</body>
+	</body>
 </html>

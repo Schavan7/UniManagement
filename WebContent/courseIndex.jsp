@@ -5,30 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Courses</title>
+<title>List Courses</title>
 </head>
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-</script>
-<body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-
+<body>
 <div class="container-fluid">
-<div class="panel-heading">
-<%@include file="header.jsp" %></div>
-	 <div class="row">	
-        <div class="col-md-12">
-        <h2>List of Courses:</h2>
-        <div class="table-responsive">                
-        	<a href="course.do?action=edit">Add Course</a></td>
-              <table id="mytable" class="table table-bordred table-striped">                   
+	<div class="panel-heading"><%@include file="header.jsp" %></div>
+	<div class="row">	
+       <div class="col-md-12"> <h2>List of Courses:</h2>
+        <div class= "panel-body">
+	 		<div style="height:500px">
+		        <div class="table-responsive">  
+		        <div class="pull-right"><a class="btn btn-success" href="course.do?action=edit">Add Course</a></div>              
+        		<!-- 	<a href="course.do?action=edit">Add Course</a></td> -->
+             	 <table id="mytable" class="table table-bordred table-striped">                   
                    <thead>                   
                     <th>Course Name</th>
                      <th>Department Name</th>
@@ -37,6 +31,8 @@
 					<th>Semester</th>
 					<th>Faculty</th>
 					<th>Capacity</th>
+					<th>Edit</th>                     
+                	<th>Delete</th>
                    	</thead>
     				<tbody>    
     					<c:forEach items="${courses}" var="course">
