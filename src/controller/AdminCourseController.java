@@ -36,18 +36,19 @@ public class AdminCourseController extends HttpServlet {
 		String action = request.getParameter( "action" );
 		String forward = "";
 		CourseDAO dao = new CourseDAO();
-		if( action.equalsIgnoreCase("index") ) {
-	System.out.println("This is index");
+		if( (action == null) || action.equalsIgnoreCase("index") ) {
 			ArrayList<Course>  course = dao.getAllCourses();
 			request.setAttribute("courses", course);
 			forward = "courseIndex.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}else if( action.equalsIgnoreCase( "delete" ) ) {
 			forward = "courseIndex.jsp";
 			String courseId = request.getParameter("courseId");
 			Course course =  new Course();
 			course.setCourseId(Integer.parseInt(courseId));
 			dao.deleteCourse(course);
-			request.setAttribute("courses", dao.getAllCourses() );
+			response.sendRedirect("course.do"); 
 		}
 		else if( action.equalsIgnoreCase( "edit" ) ) {
 			forward = "courseEdit.jsp";
@@ -63,9 +64,10 @@ public class AdminCourseController extends HttpServlet {
 			SemesterDAO semDao = new SemesterDAO();
 			ArrayList<Semester>  semesters = semDao.getAllSemester();
 			request.setAttribute("semesters", semesters);
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}    
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
+
 	}
 
 	/**
@@ -91,8 +93,6 @@ public class AdminCourseController extends HttpServlet {
 			course.setCourseId(Integer.parseInt(courseId));
 			dao.updateCourses(course);
 		}
-		RequestDispatcher view = request.getRequestDispatcher("courseIndex.jsp");
-		request.setAttribute("courses", dao.getAllCourses());
-		view.forward(request, response);
+		response.sendRedirect("course.do"); 
 	}
 }

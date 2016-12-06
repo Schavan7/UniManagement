@@ -31,7 +31,7 @@ public class AdminDepartmentController extends HttpServlet {
 		String action = request.getParameter( "action" );
 		String forward = "";
 		DepartmentDao dao = new DepartmentDao();
-		if( action.equalsIgnoreCase("index") ) {
+		if((action == null) || action.equalsIgnoreCase("index") ) {
 			ArrayList<Department>  departments = dao.getAllDepartments();
 			request.setAttribute("departments", departments);
 			forward = "departmentIndex.jsp";
@@ -68,9 +68,6 @@ public class AdminDepartmentController extends HttpServlet {
 			dept.setDeptId( Integer.parseInt(deptId));
 			dao.updateDepartment(dept);
 		}
-		
-		RequestDispatcher view = request.getRequestDispatcher("departmentIndex.jsp");
-		request.setAttribute("departments", dao.getAllDepartments());
-		view.forward(request, response);
+		response.sendRedirect("department.do"); 
 	}
 }

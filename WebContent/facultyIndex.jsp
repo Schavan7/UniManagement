@@ -28,7 +28,6 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>CWID</th>
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
@@ -43,7 +42,6 @@
 				<tbody>
 					<c:forEach items="${faculty}" var="faculty">
 					<tr>
-						<td><c:out value="${faculty.getCwId()}" />	</td>
 						<td><c:out value="${faculty.getFirstName()}" /></td>
 						<td><c:out value="${faculty.getLastName()}" /></td>
 						<td><c:out value="${faculty.getEmail()}" /></td>

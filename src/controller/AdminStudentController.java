@@ -31,18 +31,18 @@ public class AdminStudentController extends HttpServlet {
 		String action = request.getParameter( "action" );
 		String forward = "";
 		StudentDAO dao = new StudentDAO();
-		if( action.equalsIgnoreCase("index") ) {
-	
+		if( (action == null) || action.equalsIgnoreCase("index") ) {
 			ArrayList<Student>  students = dao.getAllStudents();
 			request.setAttribute("students", students);
 			forward = "StudentIndex.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}else if( action.equalsIgnoreCase( "delete" ) ) {
-			forward = "StudentIndex.jsp";
 			String studentId = request.getParameter("studentId");
 			Student student =  new Student();
 			student.setUserId(Integer.parseInt(studentId));
 			dao.deleteStudent(student);
-			request.setAttribute("students", dao.getAllStudents() );
+			response.sendRedirect("student.do"); 
 		}
 		else if( action.equalsIgnoreCase( "edit" ) ) {
 			forward = "StudentEdit.jsp";
@@ -52,9 +52,10 @@ public class AdminStudentController extends HttpServlet {
 			DepartmentDao deptDao = new DepartmentDao();
 			ArrayList<Department>  departments = deptDao.getAllDepartments();
 			request.setAttribute("departments", departments);
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}    
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
+
 	}
 
 	/**
@@ -72,7 +73,7 @@ public class AdminStudentController extends HttpServlet {
 		student.setDob(Date.valueOf(request.getParameter("Dob")));
 		student.setPassword( request.getParameter("password"));
 		student.setPhone(request.getParameter("phone"));
-		student.setUserType(request.getParameter("userType"));
+		student.setUserType("Student");
 		String studentId = request.getParameter("studentId");
 		
 
@@ -82,8 +83,6 @@ public class AdminStudentController extends HttpServlet {
 			student.setUserId( Integer.parseInt(studentId));
 			dao.updateStudent(student);
 		}
-		RequestDispatcher view = request.getRequestDispatcher("StudentIndex.jsp");
-		request.setAttribute("students", dao.getAllStudents());
-		view.forward(request, response);
+		response.sendRedirect("student.do"); 
 	}
 }

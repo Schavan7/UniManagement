@@ -33,7 +33,6 @@
 				<th>Department ID</th>
 				<th>Department Name</th>
 				<th>Edit</th>                     
-                <th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -42,9 +41,6 @@
 					<td><c:out value="${department.getDeptId()}" /></td>
 					<td><c:out value="${department.getDeptName()}" /></td>
 					<td><a class="btn btn-primary" href="department.do?action=edit&departmentId=<c:out value='${department.getDeptId()}'/>">Edit</a></td>
-						<td>
-						<a class="btn btn-danger"href="department.do?action=delete&departmentId=<c:out value='${department.getDeptId()}'/>">Delete</a>
-						</td>
 				</tr>
 			</c:forEach>
 		</tbody>

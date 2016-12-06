@@ -32,18 +32,20 @@ public class AdminFacultyController extends HttpServlet {
 		String action = request.getParameter( "action" );
 		String forward = "";
 		FacultyDAO dao = new FacultyDAO();
-		if( action.equalsIgnoreCase("index") ) {
+		if((action == null) || action.equalsIgnoreCase("index") ) {
 	
 			ArrayList<Faculty>  faculty = dao.getAllFaculty();
 			request.setAttribute("faculty", faculty);
 			forward = "facultyIndex.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}else if( action.equalsIgnoreCase( "delete" ) ) {
 			forward = "facultyIndex.jsp";
 			String facultyId = request.getParameter("facultyId");
 			Faculty faculty =  new Faculty();
 			faculty.setUserId(Integer.parseInt(facultyId));
 			dao.deleteFaculty(faculty);
-			request.setAttribute("faculty", dao.getAllFaculty());
+			response.sendRedirect("student.do");
 		}
 		else if( action.equalsIgnoreCase( "edit" ) ) {
 			forward = "facultyEdit.jsp";
@@ -53,9 +55,10 @@ public class AdminFacultyController extends HttpServlet {
 			DepartmentDao deptDao = new DepartmentDao();
 			ArrayList<Department>  departments = deptDao.getAllDepartments();
 			request.setAttribute("departments", departments);
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}    
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
+
 	}
 
 	/**
@@ -71,10 +74,9 @@ public class AdminFacultyController extends HttpServlet {
 		faculty.setCwId(request.getParameter("cwId"));
 		faculty.setDeptId(Integer.parseInt(request.getParameter("departmentId")));
 		faculty.setDob(Date.valueOf(request.getParameter("Dob")));
-		//student.setDob(Date.valueOf("2017-10-10"));
 		faculty.setPassword( request.getParameter("password"));
 		faculty.setPhone(request.getParameter("phone"));
-		faculty.setUserType(request.getParameter("userType"));
+		faculty.setUserType("Faculty");
 		String facultyId = request.getParameter("facultyId");
 		
 
@@ -84,8 +86,6 @@ public class AdminFacultyController extends HttpServlet {
 			faculty.setUserId( Integer.parseInt(facultyId));
 			dao.updateFaculty(faculty);;
 		}
-		RequestDispatcher view = request.getRequestDispatcher("facultyIndex.jsp");
-		request.setAttribute("faculty", dao.getAllFaculty());
-		view.forward(request, response);
+		response.sendRedirect("faculty.do"); 
 	}
 }

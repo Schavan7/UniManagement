@@ -29,7 +29,8 @@
   					<div class="form-group"> 
   							<label for="Department Name">Department Name: </label>
     						<input type="text" required="true" class="form-control" id="pwd"  name="deptName" value="<c:out value="${department.getDeptName()}" />">
-  							<button type="submit" class="btn btn-success btn-md">Success</button>
+  							<br/><br/>
+  							<input type="submit" class="btn btn-primary" value="Update" />
   					</div> 
 					</form>
 				</div>
