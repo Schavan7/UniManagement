@@ -21,14 +21,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 	
 </script>
+<style>.pull-right {  float: right !important; }</style>
 <body>
 	<div class="container-fluid">
 	<div class="panel panel-default">
 	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
- 	
+ 	<div class="container">
+ 	<div style="height:500px">
 		<h1>Student Edit Form</h1>
-		<a 
-		href="student.do?action=edit">Add student</a></td>
+		<div class="pull-right"><a class="btn btn-success" href="student.do?action=edit">Add student</a></div>
 					
 		<table class="table table-striped">
 			<thead>
@@ -64,15 +65,18 @@
     								<span class="glyphicon glyphicon-pencil"></span>
     								</button></a></td>
 						<td>
-						<a class="btn btn-primary" href="student.do?action=delete&studentId=<c:out value='${student.getUserId() }'/>">Delete</a>
+						<a class="btn btn-danger" href="student.do?action=delete&studentId=<c:out value='${student.getUserId() }'/>">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>
 
 			</tbody>
 		</table>
+		</div>
+		</div>
+		</div>
 		<div class="panel-footer"><%@include file="footer.jsp" %></div>
-	</div>
+		
 	</div>
 </body>
 </html>
