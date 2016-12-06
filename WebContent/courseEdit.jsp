@@ -9,96 +9,89 @@
 </head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </script>
 <body>
-<div class="container-fluid">
- <div class="panel panel-default">
-	 <div class="panel-heading"><%@include file="header.jsp" %></div>
-	 <div class="container">
-<h3>Course View</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class=" col-md-9 col-lg-9 "> 
-                <form class="form-inline" action="course.do" method="post">
-                  <input type="hidden" name="courseId" value="<c:out value="${course.getCourseId()}" />" />
-                  <table class="table table-user-information">
-                    <tbody>
-                      
-                      <tr>
-                        <td>Course Name:</td>
-                        <td><input type="text"name="courseName" class="form-control" id="courseName" value="<c:out value="${course.getCourseName()}" />"/></td>
-                      </tr>
-                      <tr>
-                        <td>Course Capacity:</td>
-                        <td><input type="text"name="capacity" class="form-control" id="courseName" value="<c:out value="${course.getCapacity()}" />"/></td>
-                      </tr>
-                      <tr>
-                        <td>Department Name</td>
+	<div class="container-fluid">
+ 		<div class="panel panel-default">
+	 		<div class="panel-heading"><%@include file="header.jsp" %></div>
+	 		<div class="container">
+				<h3>Course View</h3>
+            	<div class="panel-body">
+              		<div class="row">
+                		<div class=" col-md-9 col-lg-9 "> 
+                			<form class="form-inline" action="course.do" method="post">
+                  				<input type="hidden" name="courseId" value="<c:out value="${course.getCourseId()}" />" />
+                  					<table class="table table-user-information">
+                   						 <tbody>
+                      						<tr>
+                        						<td>Course Name:</td>
+                        						<td><input type="text"name="courseName" class="form-control" id="courseName" value="<c:out value="${course.getCourseName()}" />"/></td>
+                      						</tr>
+                     						 <tr>
+                        						<td>Course Capacity:</td>
+                        						<td><input type="text"name="capacity" class="form-control" id="courseName" value="<c:out value="${course.getCapacity()}" />"/></td>
+                      						</tr>
+                      						<tr>
+                        						<td>Department Name</td>
 												<td><div class="dropdown">
-														<select class="btn btn-default dropdown-toggle"
-															name="deptId">
+														<select class="btn btn-default dropdown-toggle" name="deptId">
 															<c:forEach items="${departments}" var="department">
-																<option value="${department.getDeptId()}"><c:out
-																		value="${department.getDeptName()}" /></option>
+																<option value="${department.getDeptId()}">
+																	<c:out value="${department.getDeptName()}" />
+																</option>
 															</c:forEach>
 														</select>
 													</div>
-					</div></td>
-					
-					<td>Faculty Name</td>
+												</td>
+											</tr>
+											<tr>
+												<td>Faculty Name</td>
 												<td><div class="dropdown">
-														<select class="btn btn-default dropdown-toggle"
-															name="facultyId">
+														<select class="btn btn-default dropdown-toggle" name="facultyId">
 															<c:forEach items="${faculty}" var="faculty">
-																<option value="${faculty.getUserId()}"><c:out
-																		value="${faculty.getFirstName()}" /></option>
+																<option value="${faculty.getUserId()}">
+																	<c:out value="${faculty.getFirstName()}" />
+																</option>
 															</c:forEach>
 														</select>
 													</div>
-					</div></td>
-					
-					<td>Semester</td>
+												</td>
+											</tr>
+											<tr>
+												<td>Semester</td>
 												<td><div class="dropdown">
-														<select class="btn btn-default dropdown-toggle"
-															name="semesterId">
+														<select class="btn btn-default dropdown-toggle" name="semesterId">
 															<c:forEach items="${semesters}" var="semester">
-																<option value="${semester.getSemesterId()}"><c:out
-																		value="${semester.getSemesterType()}-${semester.getSemesterYear()}" /></option>
+																<option value="${semester.getSemesterId()}">
+																	<c:out value="${semester.getSemesterType()}-${semester.getSemesterYear()}" />
+																</option>
 															</c:forEach>
 														</select>
 													</div>
-					</div></td>
-                      </tr>               
-                       <tr>
-                        <td>Start Date:</td>
-                          <td> <input placeholder="startDate" class="textbox-n" name="startDate" value="${course.getStartDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
-                      </tr>
-                         
-                         <tr>
-                         <td>End Date:</td>
-                           <td> <input placeholder="endDate" class="textbox-n" name="endDate" value="${course.getEndDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
-                         </tr> 
-                     </tbody>
-                  </table>
-                  
-                 <input type="submit" class="btn btn-primary" value="Update" />
-                  
-				</form>               
-                </div>
-              </div>
-			         
+												</td>
+                      						</tr>               
+                       						<tr>
+                        						<td>Start Date:</td>
+                          						<td> <input placeholder="startDate" class="textbox-n" name="startDate" value="${course.getStartDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                      						</tr>
+                         					<tr>
+                         						<td>End Date:</td>
+                           						<td> <input placeholder="endDate" class="textbox-n" name="endDate" value="${course.getEndDate()}" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                        					</tr> 
+                     					</tbody>
+                  					</table>
+                 				<input type="submit" class="btn btn-primary" value="Update" />
+							</form>               
+               			 </div>
+              		</div>
+	            </div>
             </div>
-            </div>
-            <div class="panel-footer"><%@include file="footer.jsp" %></div>
-            </div>
-                 
-
-</body>
+           </div>
+           <div class="panel-footer"><%@include file="footer.jsp" %></div>
+         </div>
+	</body>
 </html>
