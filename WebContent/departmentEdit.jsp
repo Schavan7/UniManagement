@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Department</title>
 </head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -18,20 +18,32 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	 <style type="text/css">  
+    .center-block {  
+    width:500px;  
+    padding:30px;     
+    }</style> 
+
 <body>
 <div class="container-fluid">
 	 <div class="panel-heading"><%@include file="header.jsp" %></div>
-<div class="panel-body">	
-<form class="form-inline" action="department.do" method="post">
-<input type="hidden" name="departmentId" value="<c:out value="${department.getDeptId()}" />" />
-  <div class="form-group">
-  <label for="Department Name">Department Name</label>
-    <input type="text" class="form-control" id="pwd"  name="deptName" value="<c:out value="${department.getDeptName()}" />">
-  </div>
-  <button type="submit" class="btn btn-success btn-md">Success</button>
-</form>
-<div class="panel-footer"><%@include file="footer.jsp" %></div>
-</div>
-</div>
+	<div class="panel-body">
+	<div class="center-block">
+		<div style="height:400px">	
+		 <form class="form-inline" action="department.do" method="post">
+				<input type="hidden" name="departmentId" value="<c:out value="${department.getDeptId()}" />" />
+  				<div class="form-group">
+  					<label for="Department Name">Department Name:</label>
+    				<input type="text" required="true" class="form-control" id="pwd"  name="deptName" value="<c:out value="${department.getDeptName()}" />">
+  				</div>
+  				<button type="submit" class="btn btn-success btn-md">Success</button>
+			</form>
+			</div>
+			</div>
+			</div>
+			<div class="panel-footer"><%@include file="footer.jsp" %></div>
+	
+	</div>
+	</div>
 </body>
 </html>

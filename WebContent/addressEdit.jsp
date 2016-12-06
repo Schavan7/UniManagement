@@ -5,9 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Edit form</title>
+<title>Address form</title>
 </head>
-<title>Student Edit Form</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,20 +25,19 @@
 	 <div class="panel panel-default">
 	 <div class="panel-heading">
 	 <%@include file="header.jsp" %></div>
+	 <div style="height:500px">
 	 <div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
-				<h4 class="panel-title">Student Edit Form</h3>
-					</div>
+		<h2 class="panel-title"><strong></>Address Form</strong></h2>
 					<div class="panel-body">
 						<div class="row"><div class=" col-md-9 col-lg-9 ">
 								<form class="form-inline" action="address.do" method="post">
-								<input type="hidden" name="addressId" value="<c:out value="${address.getAddressId()}" />" />
+								<input type="hidden" name="addressId" required="true" value="<c:out value="${address.getAddressId()}" />" />
 									<table class="table table-user-information" >
 										<tbody>
 											<tr>
 												<td>Address Line1:</td>
-												<td><input type="text" name="addressline1" class="form-control"
+												<td><input type="text" name="addressline1" required="true" class="form-control"
 													id="addressline1" value="<c:out value="${address.getAddressline1()}" />"></td>
 											</tr>
 											<tr>
@@ -50,25 +48,25 @@
 											</tr>
 											<tr>
 											<td>City:</td>
-											<td><input type="text" name="city"
+											<td><input type="text" name="city" required="true"
 												class="form-control" id="city"
 												value="<c:out value="${address.getCity()}" />"></td>
 											</tr>
 											<tr>
 											<td>State:</td>
-											<td><input type="text" name="state"
+											<td><input type="text" name="state" required="true"
 												class="form-control" id="state"
 												value="<c:out value="${address.getState()}" />"></td>
 											</tr>
 											<tr>
 											<td>Zip:</td>
-											<td><input type="text" name="zip"
+											<td><input type="text" name="zip" required="true"
 												class="form-control" id="zip"
 												value="<c:out value="${address.getZip()}" />"></td>
 											</tr>
 											<tr>
 											<td>Phone No:</td>
-											<td><input type="text" name="phone" class="form-control"
+											<td><input type="text" name="phone" class="form-control" required="true"
 												id="phone" value="<c:out value="${address.getPhone()}" />"></td>
 											</tr>
 											
@@ -80,6 +78,7 @@
 					</div>
 				</div>
 				</div>
+			</div>
 			</div>
 		</div>
 		<div class="panel-footer"><%@include file="footer.jsp" %></div>
