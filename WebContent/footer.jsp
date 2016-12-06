@@ -18,11 +18,17 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 </script>
+<style type="text/css">  
+    .center-block {  
+    width:250px;  
+    padding:30px;     
+    }</style> 
 <body>
 <nav class="navbar navbar-default navbar-bottom" role="navigation">
 
 <div class= "container-fluid">
-<div class="center-block; width:200px;">
+<div class="center-block">
+<p>© 2016. All rights reserved.</p>
 </div>
 </div>
 </nav>
