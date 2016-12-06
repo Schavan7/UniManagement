@@ -24,78 +24,48 @@
 
 <div class="container-fluid">
 	 <div class="panel panel-default">
-	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
- 	
-	<div class="row">
-      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-          
-      </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Faculty Edit Form</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                       
-                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                  <dl>
-                    <dt>DEPARTMENT:</dt>
-                    <dd>Administrator</dd>
-                    <dt>HIRE DATE</dt>
-                    <dd>11/12/2013</dd>
-                    <dt>DATE OF BIRTH</dt>
-                       <dd>11/12/2013</dd>
-                    <dt>GENDER</dt>
-                    <dd>Male</dd>
-                  </dl>
-                </div>-->
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>Faculty ID:</td>
-                        <td><input type="text"
-						name="userId" class="form-control" id="userid"></td>
-                      </tr>
-                      <tr>
-                        <td>CWID:</td>
-                        <td><input type="text" name="cwId"
-						class="form-control" id="cwid"> </td>
-                      </tr>
-                      <tr>
-                        <td>FirstName:</td>
-                        <td><input type="text" name="firstName" class="form-control"
-						id="fname"></td>
-                      </tr>
-                         
-                         <tr>
-                         <td>Last Name:</td>
-                         <td><input type="text" name="lastName" class="form-control"
-						id="lname"></td>
-                         </tr>
-                         <tr>
-                         <td>Email:</td>
-                         <td><input type="email" name="email"
-						class="form-control" id="email"> </td>
-                         </tr>
-                         <tr>
-                         <td>Password:</td>
-                         <td> <input type="text" name="pasword" class="form-control"
-						id="password"></td>
-                         </tr>
-                         <tr>
-                         <td>DOB</td>
-                         <td> <input placeholder="Date of Birth" class="textbox-n" name="dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
-                         </tr>
-                         <tr>
-                         <td>Phone No:</td>
-                         <td> <input type="text"
-						name="phone" class="form-control" id="phone"> </td>
-                         </tr>
-                         <tr>
+	 	<div class="panel-heading"><%@include file="header.jsp" %></div>	 
+ 			<div class="panel panel-info">
+           		 <div class="container">
+           		 <h2>Faculty Edit Form</h2>
+            		<div class="panel-body">
+              			<div class="row">
+                			<div class=" col-md-9 col-lg-9 "> 
+                  				<table class="table table-user-information">
+                   					 <tbody>
+                      					<tr>
+                        					<td>Faculty ID:</td>
+                       						 <td><input type="text" name="userId" required="true" class="form-control" id="userid"></td>
+                      					</tr>
+                      					<tr>
+                        					<td>CWID:</td>
+                        					<td><input type="text" name="cwId" required="true" class="form-control" id="cwid"> </td>
+                      					</tr>
+                      					<tr>
+                        					<td>FirstName:</td>
+                        					<td><input type="text" name="firstName" required="true" class="form-control" id="fname"></td>
+                     					 </tr>
+                     					 <tr>
+                         					<td>Last Name:</td>
+                         					<td><input type="text" name="lastName" required="true" class="form-control"	id="lname"></td>
+                         				</tr>
+                         				<tr>
+                         					<td>Email:</td>
+                        				    <td><input type="email" name="email" required="true" class="form-control" id="email"> </td>
+                         				</tr>
+                        				 <tr>
+                         					<td>Password:</td>
+                         					<td> <input type="text" name="pasword" required="true" class="form-control" 	id="password"></td>
+                         				</tr>
+                         				<tr>
+                         					<td>DOB</td>
+                         					<td> <input placeholder="Date of Birth" required="true" class="textbox-n" name="dob" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date"></td>
+                         				</tr>
+                         				<tr>
+                         					<td>Phone No:</td>
+                         					<td> <input type="text" name="phone" required="true" class="form-control" id="phone"> </td>
+                        			   </tr>
+                         				<tr>
                          <td>User Type</td>
                          <td><div class="dropdown">
 						<button class="btn btn-default dropdown-toggle" type="button"
@@ -106,14 +76,14 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 							<li><a href="#">Student</a></li>
 							<li><a href="#">Faculty</a></li>
-						</ul>
+						</ul>		
 					</div></td>
                          </tr>
                          <tr>
                          <td>Department Name</td>
                          <td><div class="dropdown">
 						<button class="btn btn-default dropdown-toggle" type="button"
-							name="deptId" id="dropdownMenu1" data-toggle="dropdown"
+							name="deptId" required="true" id="dropdownMenu1" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="true">
 							Department Name <span class="caret"></span>
 						</button>

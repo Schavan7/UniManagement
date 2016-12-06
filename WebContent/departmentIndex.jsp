@@ -18,13 +18,15 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>.pull-right {  float: right !important; }</style>
 <body>
 <div class="container-fluid">
 	 <div class="panel panel-default">
-	 <div class="panel-heading"><%@include file="header.jsp" %></div>	 
+	 <div class="panel-heading"><%@include file="header.jsp" %></div>
+	 <div class="container">
+	 <div style="height:500px">	 
  	<h1>Department Table</h1>
-	<a 
-		href="department.do?action=edit">Add Department</a>
+	<div class="pull-right"><a class="btn btn-success" href="department.do?action=edit">Add Department</a></div>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -39,14 +41,16 @@
 				<tr>
 					<td><c:out value="${department.getDeptId()}" /></td>
 					<td><c:out value="${department.getDeptName()}" /></td>
-					<td><a href="department.do?action=edit&departmentId=<c:out value='${department.getDeptId()}'/>">Edit</a></td>
+					<td><a class="btn btn-primary" href="department.do?action=edit&departmentId=<c:out value='${department.getDeptId()}'/>">Edit</a></td>
 						<td>
-						<a href="department.do?action=delete&departmentId=<c:out value='${department.getDeptId()}'/>">Delete</a>
+						<a class="btn btn-danger"href="department.do?action=delete&departmentId=<c:out value='${department.getDeptId()}'/>">Delete</a>
 						</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	</div>
+	</div>
 	<div class="panel-footer"><%@include file="footer.jsp" %></div>
 	</div>
 </body>
