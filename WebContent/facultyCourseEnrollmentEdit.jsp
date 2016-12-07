@@ -42,15 +42,15 @@
 										<tbody>
 											<tr>
 												<td>CWID:</td>
-												<td><input type="text" name="cwId" required="true"
-													class="form-control" id="cwid"
-													value="<c:out value="${enrollment.getStudentCwId()}" />"></td>
+												<td><span><c:out value="${enrollment.getStudentCwId()}" /></span>
+												
+												</td>
 											</tr>
 											<tr>
 												<td>Student Name:</td>
-												<td><input type="text" name="name" required="true"
-													class="form-control" id="fname"
-													value="<c:out value="${enrollment.getStudentName()}" />"></td>
+												<td>
+												<span><c:out value="${enrollment.getStudentName()}" /></span>
+												</td>
 											</tr>
 											<tr>
 												<td>Grade:</td>
