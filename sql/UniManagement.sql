@@ -23,7 +23,7 @@ cwid varchar(25),
 	dept_id INT,
 	user_type ENUM('Admin', 'Student','Faculty'),
 	DOB DATE,
-	FOREIGN KEY(dept_id) REFERENCES departments(dept_id));
+	FOREIGN KEY(dept_id) REFERENCES departments(dept_id)  ON DELETE CASCADE);
 
 
 CREATE TABLE IF NOT EXISTS courses
@@ -35,9 +35,9 @@ enddate DATE,
 faculty_id INT,
 dept_id INT,
 semester_id INT,
-FOREIGN KEY (faculty_id) REFERENCES users(user_id),
-FOREIGN KEY (semester_id) REFERENCES semesters(semester_id),
-FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+FOREIGN KEY (faculty_id) REFERENCES users(user_id) ON DELETE CASCADE,
+FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)  ON DELETE CASCADE,
+FOREIGN KEY (dept_id) REFERENCES departments(dept_id)  ON DELETE CASCADE
 );
 
 
@@ -51,8 +51,9 @@ course_name VARCHAR(50),
 grade DECIMAL(5,2),
 student_id INT,
 semester_id INT,
-FOREIGN KEY (student_id) REFERENCES users(user_id),
-FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)
+FOREIGN KEY (student_id) REFERENCES users(user_id)  ON DELETE CASCADE,
+FOREIGN KEY (course_id) REFERENCES  courses(course_id)  ON DELETE CASCADE,
+FOREIGN KEY (semester_id) REFERENCES semesters(semester_id)  ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS addresses
@@ -64,7 +65,7 @@ CREATE TABLE IF NOT EXISTS addresses
 	zip_code VARCHAR(10),
 	phone VARCHAR(15),
 	user_id INT,
-	FOREIGN KEY (user_id) REFERENCES users(user_id)
+	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 	);
 
 
