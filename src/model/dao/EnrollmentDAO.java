@@ -61,10 +61,10 @@ public class EnrollmentDAO extends Dao{
 			return list;		
 		}
 
-		public ArrayList<Enrollment> getAllFaculty(String course_Id,String faculty_Id){	
+		public ArrayList<Enrollment> getAllEnrolledStudents(String course_Id){	
 			ArrayList <Enrollment> list = new ArrayList<Enrollment>();
 			try {
-				String sql= "select * from enrollments where faculty_id="+course_Id+"and course_id="+faculty_Id ;
+				String sql= "select * from enrollments where course_id='"+ course_Id + "'";
 				rs = executeFetchQuery (sql);			
 
 				while (rs.next()){	
@@ -104,9 +104,11 @@ public class EnrollmentDAO extends Dao{
 
 		public void updateEnrollment(Enrollment ft){
 			try {
-				String sql= "UPDATE enrollments SET enrollment_id = '" + ft.getEnrollId() +
-						"', course_id='" + ft.getCourseId() + "', course_name= '"+ ft.getCourseName() + "',startdate='" + ft.getStartDate() + 
-						 "',enddate='" + ft.getEndDate() + "',grade='" + ft.getGrade() + "',student_id'" + ft.getStudentId() + "',semester_id'" + ft.getSemesterId() +"'";
+				String sql= "UPDATE enrollments SET course_id=" + ft.getCourseId() + ", course_name= '"+ ft.getCourseName() + "',startdate='" + ft.getStartDate() + 
+						 "',enddate='" + ft.getEndDate() + "',grade=" + ft.getGrade() + ",student_id=" + ft.getStudentId() + ",semester_id=" + ft.getSemesterId() +
+						 " where enrollment_id=" + ft.getEnrollId();
+				
+				System.out.println(sql);
 				executeModifySelectQuery(sql);					
 			} 
 			catch (Exception e) {

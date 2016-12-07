@@ -32,7 +32,7 @@ public class HomeController extends HttpServlet {
 		HttpSession session = request.getSession(true); 
 		User user = (User)session.getAttribute("currentUser"); 
 		if(user.getUserType().toLowerCase().equals("faculty")){
-			response.sendRedirect("facultyHome.jsp"); 
+			response.sendRedirect("facultyHome.do"); 
 		}else if(user.getUserType().toLowerCase().equals("student")){
 			response.sendRedirect("enrollment.do"); 
 		}else if(user.getUserType().toLowerCase().equals("admin")){

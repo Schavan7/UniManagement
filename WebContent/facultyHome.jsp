@@ -50,7 +50,7 @@ $('.datepicker').datepicker();
     							<td><c:out value="${course.getSemesterName()}" />	</td>
     							<td><c:out value="${course.getCapacity()}" />	</td>
     							
-    							 <td><a class="btn btn-primary" href="course.do?action=&courseId=<c:out value='${course.getCourseId() }'/>">View</a>
+    							 <td><a class="btn btn-primary" href="facultyHome.do?action=courseDetail&courseId=<c:out value='${course.getCourseId() }'/>">View</a>
     							</td>
     					</tr>
     				</c:forEach>

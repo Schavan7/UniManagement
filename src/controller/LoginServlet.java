@@ -44,9 +44,8 @@ public class LoginServlet extends HttpServlet {
 					response.sendRedirect("enrollment.do"); 
 				}else if(user.getUserType().equals("Admin")){
 					response.sendRedirect("adminUserHome.jsp"); 
-
 				}else if(user.getUserType().equals("Faculty")){
-					response.sendRedirect("facultyHome.jsp"); 
+					response.sendRedirect("facultyHome.do"); 
 				}
 			} 
 			else {

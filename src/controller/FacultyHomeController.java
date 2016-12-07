@@ -23,14 +23,14 @@ import model.dao.EnrollmentDAO;
 @WebServlet("/FacultyHomeController")
 public class FacultyHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FacultyHomeController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public FacultyHomeController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,38 +43,43 @@ public class FacultyHomeController extends HttpServlet {
 		EnrollmentDAO dao2=new EnrollmentDAO();
 		HttpSession session = request.getSession(true); 
 		User us=(User) session.getAttribute("currentUser");
-		if( action.equalsIgnoreCase("index") ){
-		ArrayList<Course>  course = dao.getAllCourses("faculty_id",us.getUserId().toString());
-		request.setAttribute("courses", course);
-		forward="facultyHome.jsp";
+		if( (action == null) || action.equalsIgnoreCase("index") ){
+			ArrayList<Course>  course = dao.getAllCourses("faculty_id",us.getUserId().toString());
+			request.setAttribute("courses", course);
+			forward="facultyHome.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}else if(action.equalsIgnoreCase("courseDetail")){
 			String courseId=request.getParameter("courseId");
-			ArrayList<Enrollment> enrollment = dao2.getAllFaculty(courseId, us.getUserId().toString());
+			CourseDAO cDao = new CourseDAO();
+			Course course = cDao.getCourse("course_id", courseId);
+			ArrayList<Enrollment> enrollment = dao2.getAllEnrolledStudents(courseId);
 			request.setAttribute("enrollments", enrollment);
+			request.setAttribute("course", course);
 			forward="facultyCourseDetails.jsp";
+			RequestDispatcher view = request.getRequestDispatcher(forward);
+			view.forward(request, response);
 		}else if(action.equalsIgnoreCase("edit")){
-			String enrollmentId =request.getParameter("enrollmentId");
-			Enrollment enroll=dao2.getEnrollment("enrollment_id", enrollmentId);
-			request.setAttribute("enrollments", enroll);
-			forward="facultyHomeEdit.jsp";
+			String enrollmentId = request.getParameter("enrollmentId");
+			Enrollment enrollment = dao2.getEnrollment("enrollment_id", enrollmentId);
+			request.setAttribute("enrollment", enrollment);
+			RequestDispatcher view = request.getRequestDispatcher("facultyCourseEnrollmentEdit.jsp");
+			view.forward(request, response);
 		}
-		RequestDispatcher view = request.getRequestDispatcher(forward);
-		view.forward(request, response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		EnrollmentDAO dao= new EnrollmentDAO();
-		Enrollment enroll=new Enrollment();
-		HttpSession session = request.getSession(true); 
-		User use=(User) session.getAttribute("currentUser");
-	
-		RequestDispatcher view = request.getRequestDispatcher("facultyHome.jsp");
-		request.setAttribute("enrollment", dao.getAllEnrollment(use));
-		view.forward(request, response);
+		String enrollmentId = request.getParameter("enrollmentId");
+		String courseId = request.getParameter("courseId");
+		Enrollment enrollment = dao.getEnrollment("enrollment_id", enrollmentId);
+		enrollment.setGrade(Double.parseDouble(request.getParameter("grade")));
+		dao.updateEnrollment(enrollment);
+		response.sendRedirect("facultyHome.do?action=courseDetail&courseId=" + courseId ); 
 	}
 
 }

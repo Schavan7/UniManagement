@@ -83,5 +83,10 @@ public class Enrollment {
 		return student.getFirstName()+" "+student.getLastName();
 	}
 	
+	public String getStudentCwId(){
+		StudentDAO dao=new StudentDAO();
+		Student student =dao.getStudent("user_id",this.getStudentId().toString());
+		return student.getCwId();
+	}
 
 }
